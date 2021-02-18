@@ -12,7 +12,7 @@
   * CLion
   * Un compilateur C (C à été également le language de programation)
   * Un ordinateur Windows
-  * Le main.c et le CMakeLists.txt qui se trouve au lien [ici](https://github.com/Ruimmp/Rui_Bataille-Navale)
+  * Le main.c et le CMakeLists.txt qui se trouve au lien [ici](https://github.com/Ruimmp/BatailleNavale)
 * **Pour générer l'exécutable, vous devez:**
   1. Ouvrir avec CLion le repertoire précédemment téléchargé
   2. Compilez le programme
