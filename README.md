@@ -1,7 +1,3 @@
-
-
-
-
 # Bataille navale
 # Jeu
 - La bataille navale, appelée aussi touché-coulé, est un jeu de société dans lequel deux joueurs doivent placer des « navires » sur une grille tenue secrète et tenter de « toucher » les navires adverses. 
