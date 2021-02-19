@@ -2,7 +2,7 @@
 # Jeu
 - La bataille navale, appelée aussi touché-coulé, est un jeu de société dans lequel deux joueurs doivent placer des « navires » sur une grille tenue secrète et tenter de « toucher » les navires adverses. 
 - Taille carte 10×10
-- Nombre de bateuax, types de bateuax, longueur des bateaux
+- Nombre de bateaux, types de bateuax, longueur des bateaux
 # Génération
 * **Vous aurez besoin de:**
   * CLion
