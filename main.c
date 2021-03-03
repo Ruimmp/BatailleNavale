@@ -1,6 +1,21 @@
 #include <stdio.h>
 #include <windows.h>
 
+
+void hub();
+
+void jeu();
+
+void aide();
+
+void scanfclear();
+
+int main() {
+    hub();
+    return 0;
+}
+
+
 void hub() {
     //Initialisation des variables
     int choix;
@@ -9,14 +24,17 @@ void hub() {
     do {
         printf("Bataille Navale!\n\n\n\n");
         printf("Options:\n");
-        printf("1-jouer\n2-classement\n3-aide\n4-quitter");
+        printf("1-jouer\n"
+               "2-classement\n"
+               "3-aide\n"
+               "4-quitter");
         scanf("%d", &choix);
+        scanfclear();
     } while (choix < 1 || choix > 3);
     switch (choix) {
         case 1:
             if (choix == 1)
-                //jeu();
-                printf("Jeu");
+                jeu();
             break;
         case 2:
             if (choix == 2)
@@ -25,23 +43,98 @@ void hub() {
             break;
         case 3:
             if (choix == 3)
-                //aide();
-                printf("aide");
+                aide();
             break;
         case 4:
             if (choix == 4)
                 system("pause");
             break;
         case 5:
-            if (choix < 1){
+            if (choix < 1 || choix > 5) {
                 printf("Veillez entrer une valeur parmis celles notées dans les options.");
             }
             break;
     }
 }
 
+void aide() {
+    int choix;
+    system("cls");
 
-int main() {
-    hub();
-    return 0;
+    printf("Voici les regles du jeu:\n"
+           "\n1."
+           "\n2."
+           "\n3."
+           "\n4."
+           "\n5."
+           "\n6."
+           "\n7."
+           "\n8."
+           "\n9."
+           "\n10."
+           "\n\n");
+
+    printf("Voulez-vous quitter le jeu?\n"
+           "\n1 - Revenir sur le menu principal"
+           "\n2 - Quitter");
+    scanfclear();
+    scanf("%d", choix);
+    switch (choix) {
+        case 1:
+            hub();
+            break;
+        case 2:
+            system("pause");
+            break;
+    }
+}
+
+void jeu(int table[10][10]) {
+    system("cls");
+    printf("A B C D E F G H I J");
+    printf("  ");
+    for (int ligne = 0; ligne < 41; ++ligne) {
+        printf("-");
+    }
+    printf("\n");
+    for (int x = 0; x < 10; ++x) {
+        printf("%3d", x + 1);
+        for (int y = 0; y < 10; ++y) {
+            switch (table[x][y]) {
+                case 0:
+                    printf("|");
+                    break;
+
+                case 1:
+                    printf("|");
+                    break;
+
+                case 2:
+                    printf("|");
+                    break;
+
+                case 3:
+                    printf("|");
+                    break;
+
+                case 4:
+                    printf("|");
+                    break;
+            }
+        }
+        printf("|\n");
+        printf("  ");
+        for (int col = 0; col < 41; ++col) {
+            printf("-");
+            //printf("\n");
+        }
+        printf("\n");
+        printf(" ");
+    }
+}
+
+void scanfclear() {
+    // variable temporaire
+    int voider;
+    while ((voider = getchar()) != EOF && voider != '\n');
 }
