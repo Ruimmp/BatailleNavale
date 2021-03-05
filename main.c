@@ -1,6 +1,5 @@
 #include <stdio.h>
-#include <windows.h>
-
+#include <stdlib.h>
 
 void hub();
 
@@ -11,11 +10,12 @@ void aide();
 void scanfclear();
 
 int main() {
-    hub();
+    //hub();
+    jeu();
     return 0;
 }
 
-
+/*
 void hub() {
     //Initialisation des variables
     int choix;
@@ -88,13 +88,15 @@ void aide() {
             break;
     }
 }
-
+*/
 void jeu(int table[10][10]) {
-    system("cls");
-    printf("A B C D E F G H I J");
+
+    printf("\n");
+    printf("     A   B   C   D   E   F   G   H   I   J");
+    printf("\n");
     printf("  ");
     for (int ligne = 0; ligne < 41; ++ligne) {
-        printf("-");
+        printf("=");
     }
     printf("\n");
     for (int x = 0; x < 10; ++x) {
@@ -102,30 +104,30 @@ void jeu(int table[10][10]) {
         for (int y = 0; y < 10; ++y) {
             switch (table[x][y]) {
                 case 0:
-                    printf("|");
+                    printf("║   ");
                     break;
 
                 case 1:
-                    printf("|");
+                    printf("║   ");
                     break;
 
                 case 2:
-                    printf("|");
+                    printf("║   ");
                     break;
 
                 case 3:
-                    printf("|");
+                    printf("║   ");
                     break;
 
                 case 4:
-                    printf("|");
+                    printf("║   ");
                     break;
             }
         }
-        printf("|\n");
+        printf("║\n");
         printf("  ");
         for (int col = 0; col < 41; ++col) {
-            printf("-");
+            printf("=");
             //printf("\n");
         }
         printf("\n");
@@ -134,7 +136,6 @@ void jeu(int table[10][10]) {
 }
 
 void scanfclear() {
-    // variable temporaire
     int voider;
     while ((voider = getchar()) != EOF && voider != '\n');
 }
