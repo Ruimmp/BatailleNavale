@@ -104,27 +104,27 @@ void jeu(int table[10][10]) {
         for (int y = 0; y < 10; ++y) {
             switch (table[x][y]) {
                 case 0:
-                    printf("║   ");
+                    printf("|   ");
                     break;
 
                 case 1:
-                    printf("║   ");
+                    printf("|   ");
                     break;
 
                 case 2:
-                    printf("║   ");
+                    printf("|   ");
                     break;
 
                 case 3:
-                    printf("║   ");
+                    printf("|   ");
                     break;
 
                 case 4:
-                    printf("║   ");
+                    printf("|   ");
                     break;
             }
         }
-        printf("║\n");
+        printf("|\n");
         printf("  ");
         for (int col = 0; col < 41; ++col) {
             printf("=");

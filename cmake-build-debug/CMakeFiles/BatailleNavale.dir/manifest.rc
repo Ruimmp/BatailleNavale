@@ -1,0 +1,2 @@
+#pragma code_page(65001)
+1 /* CREATEPROCESS_MANIFEST_RESOURCE_ID */ 24 /* RT_MANIFEST */ "R:/CPNV/Modules/MA/MA-20/BatailleNavale/cmake-build-debug/CMakeFiles/BatailleNavale.dir/embed.manifest"

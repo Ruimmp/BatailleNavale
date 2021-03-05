@@ -1,3 +1,3 @@
-C:/1.Modules/MA/20/BatailleNavale/cmake-build-debug/CMakeFiles/BatailleNavale.dir
-C:/1.Modules/MA/20/BatailleNavale/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/1.Modules/MA/20/BatailleNavale/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+R:/CPNV/Modules/MA/MA-20/BatailleNavale/cmake-build-debug/CMakeFiles/BatailleNavale.dir
+R:/CPNV/Modules/MA/MA-20/BatailleNavale/cmake-build-debug/CMakeFiles/edit_cache.dir
+R:/CPNV/Modules/MA/MA-20/BatailleNavale/cmake-build-debug/CMakeFiles/rebuild_cache.dir

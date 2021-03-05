@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/1.Modules/MA/20/BatailleNavale/main.c" "C:/1.Modules/MA/20/BatailleNavale/cmake-build-debug/CMakeFiles/BatailleNavale.dir/main.c.obj"
+  "R:/CPNV/Modules/MA/MA-20/BatailleNavale/main.c" "R:/CPNV/Modules/MA/MA-20/BatailleNavale/cmake-build-debug/CMakeFiles/BatailleNavale.dir/main.c.obj"
   )
-set(CMAKE_C_COMPILER_ID "GNU")
+set(CMAKE_C_COMPILER_ID "MSVC")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
