@@ -127,7 +127,7 @@ void table(int table[10][10]) {
     printf("     A   B   C   D   E   F   G   H   I   J");
     printf("\n");
     printf("  ");
-    for (int ligne = 0; ligne < 41; ++ligne) {
+    for (int ligne = 0; ligne < 42; ++ligne) {
         printf("=");
     }
     printf("\n");
@@ -141,23 +141,23 @@ void table(int table[10][10]) {
                 case 1:
                     printf("|   ");
                     break;
-
+                //cas pour dire que le bateau a été touché
                 case 2:
-                    printf("|   ");
+                    printf("| ! ");
                     break;
-
+                //cas pour dire que le tire est à l'eau
                 case 3:
-                    printf("|   ");
+                    printf("| ~ ");
                     break;
-
+                //cas pour dire que le bateau est coullé
                 case 4:
-                    printf("|   ");
+                    printf("| 0 ");
                     break;
             }
         }
         printf("|\n");
         printf("  ");
-        for (int col = 0; col < 41; ++col) {
+        for (int col = 0; col < 42; ++col) {
             printf("=");
             //printf("\n");
         }
@@ -226,7 +226,31 @@ void jeu() {
                "> ");
         scanf("%d", &line);
         scanfclear();
-    }while (line < 1 || line > 10);
+    } while (line < 1 || line > 10);
+    do {
+        table(map1);
+        printf("Veillez entrer une valeur horizontale (A - J)"
+               "\n"
+               "> ");
+        scanf("%d", &hor);
+        scanfclear();
+    } while (hor < 65 || line > 65);
+
+    if (map1[line - 1][hor - 65] == 1) {
+        map1[line - 1][hor - 65] = 2;
+        printf("Bien joué, vous avez touché une partie du bateau!\n");
+        //Petite pause pour afficher le printf et qu'on puisse le lire
+        Sleep(1000);
+        //Petite pause pour afficher le printf et qu'on puisse le lire
+    }
+
+    if (map1[line - 1][hor - 65] == 0) {
+        map1[line - 1][hor - 65] = 3;
+        printf("Bien essayé!\n");
+        //Petite pause pour afficher le printf et qu'on puisse le lire
+        Sleep(1000);
+        //Petite pause pour afficher le printf et qu'on puisse le lire
+    }
 }
 
 void scanfclear() {
