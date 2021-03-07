@@ -1,7 +1,7 @@
-"R:\Aplications\CLion\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - NMake Makefiles" R:\CPNV\Modules\MA\MA-20\BatailleNavale
--- The C compiler identification is MSVC 19.16.27044.0
--- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx86/x86/cl.exe
--- Check for working C compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/VC/Tools/MSVC/14.16.27023/bin/Hostx86/x86/cl.exe - works
+"R:\Aplications\CLion\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" R:\CPNV\Modules\MA\MA-20\BatailleNavale
+-- The C compiler identification is GNU 9.2.0
+-- Check for working C compiler: R:/Aplications/MinGW/bin/gcc.exe
+-- Check for working C compiler: R:/Aplications/MinGW/bin/gcc.exe - works
 -- Detecting C compiler ABI info
 -- Detecting C compiler ABI info - done
 -- Detecting C compile features
