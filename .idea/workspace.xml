@@ -25,7 +25,7 @@
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" ENABLED="true" />
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
@@ -65,7 +65,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../Programation Projects/Testes" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -76,12 +76,7 @@
     <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
   <component name="RunManager">
-    <configuration name="BatailleNavale" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BatailleNavale" TARGET_NAME="BatailleNavale" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BatailleNavale" RUN_TARGET_NAME="BatailleNavale">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="BatailleNavale" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BatailleNavale" TARGET_NAME="BatailleNavale" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BatailleNavale" RUN_TARGET_NAME="BatailleNavale">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -115,6 +110,12 @@
       <workItem from="1615134807309" duration="1454000" />
       <workItem from="1615137136602" duration="4146000" />
       <workItem from="1615141485778" duration="1321000" />
+      <workItem from="1615188715475" duration="138000" />
+      <workItem from="1615188888846" duration="843000" />
+      <workItem from="1615189743914" duration="498000" />
+      <workItem from="1615190255486" duration="306000" />
+      <workItem from="1615190564876" duration="144000" />
+      <workItem from="1615190830289" duration="83000" />
     </task>
     <servers />
   </component>
@@ -138,5 +139,15 @@
     <MESSAGE value="Teste_1" />
     <MESSAGE value="Teste_2" />
     <option name="LAST_COMMIT_MESSAGE" value="Teste_2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1615190708031">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1615190708031" />
+    <state x="461" y="165" key="SettingsEditor" timestamp="1615190912872">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1615190912872" />
   </component>
 </project>
