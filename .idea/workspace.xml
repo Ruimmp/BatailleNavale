@@ -31,7 +31,8 @@
   <component name="ChangeListManager">
     <list default="true" id="006dd366-77da-432e-adb5-b31368590f78" name="Default Changelist" comment="Teste_2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,15 +74,35 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="CMake Application.BatailleNavaleEcole">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BatailleNavale" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BatailleNavale" TARGET_NAME="BatailleNavale" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BatailleNavale" RUN_TARGET_NAME="BatailleNavale">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="BatailleNavaleEcole" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--target clean" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="BatailleNavale" TARGET_NAME="BatailleNavale" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="BatailleNavale" RUN_TARGET_NAME="BatailleNavale">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.BatailleNavale" />
+      <item itemvalue="CMake Application.BatailleNavaleEcole" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -119,6 +140,8 @@
       <workItem from="1615190830289" duration="83000" />
       <workItem from="1615201713970" duration="83000" />
       <workItem from="1615201973790" duration="610000" />
+      <workItem from="1615379869430" duration="382000" />
+      <workItem from="1615380265115" duration="200000" />
     </task>
     <servers />
   </component>
@@ -144,13 +167,17 @@
     <option name="LAST_COMMIT_MESSAGE" value="Teste_2" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="649" y="155" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1615380464432">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="649" y="155" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1615380464432" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1615201796073">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1615201796073" />
-    <state x="461" y="165" key="SettingsEditor" timestamp="1615190912872">
+    <state x="461" y="165" key="SettingsEditor" timestamp="1615380048369">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1615190912872" />
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1615380048369" />
   </component>
 </project>
