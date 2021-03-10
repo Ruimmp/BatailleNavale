@@ -31,8 +31,7 @@
   <component name="ChangeListManager">
     <list default="true" id="006dd366-77da-432e-adb5-b31368590f78" name="Default Changelist" comment="Teste_2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +140,7 @@
       <workItem from="1615201713970" duration="83000" />
       <workItem from="1615201973790" duration="610000" />
       <workItem from="1615379869430" duration="382000" />
-      <workItem from="1615380265115" duration="200000" />
+      <workItem from="1615380265115" duration="2639000" />
     </task>
     <servers />
   </component>
@@ -167,14 +166,30 @@
     <option name="LAST_COMMIT_MESSAGE" value="Teste_2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="649" y="155" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1615380464432">
+    <state x="649" y="155" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1615380469159">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="649" y="155" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1615380464432" />
+    <state x="649" y="155" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1615380469159" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1615201796073">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1615201796073" />
+    <state width="1877" height="202" key="GridCell.Tab.0.bottom" timestamp="1615383917518">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="202" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1615383917518" />
+    <state width="1877" height="202" key="GridCell.Tab.0.center" timestamp="1615383917518">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="202" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1615383917518" />
+    <state width="1877" height="202" key="GridCell.Tab.0.left" timestamp="1615383917518">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="202" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1615383917518" />
+    <state width="1877" height="202" key="GridCell.Tab.0.right" timestamp="1615383917518">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="202" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1615383917518" />
     <state x="461" y="165" key="SettingsEditor" timestamp="1615380048369">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

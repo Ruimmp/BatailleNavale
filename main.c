@@ -1,3 +1,9 @@
+/*
+ * @Title : Bataille Navale
+ * @Author : MONTEIRO Rui
+ * @Version : 0.1
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
@@ -35,7 +41,7 @@ void hub() {
                "4-quitter");
         scanf("%d", &choix);
         scanfclear();
-    } while (choix < 1 || choix > 3);
+    } while (choix < 1 || choix > 4);
     switch (choix) {
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
         //cas pour jouer à la bataille navale
@@ -141,15 +147,15 @@ void table(int table[10][10]) {
                 case 1:
                     printf("|   ");
                     break;
-                //cas pour dire que le bateau a été touché
+                    //cas pour dire que le bateau a été touché
                 case 2:
                     printf("| ! ");
                     break;
-                //cas pour dire que le tire est à l'eau
+                    //cas pour dire que le tire est à l'eau
                 case 3:
                     printf("| ~ ");
                     break;
-                //cas pour dire que le bateau est coullé
+                    //cas pour dire que le bateau est coullé
                 case 4:
                     printf("| 0 ");
                     break;
