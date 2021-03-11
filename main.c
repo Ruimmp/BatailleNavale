@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
+#include <unistd.h>
 
 void hub();
 
@@ -227,36 +228,85 @@ void jeu() {
 
     do {
         table(map1);
-        printf("Veillez entrer une valeur horizontale (A - J)"
-               "\n"
-               "> ");
-        scanf("%d", &line);
-        scanfclear();
-    } while (line < 1 || line > 10);
-    do {
-        table(map1);
-        printf("Veillez entrer une valeur horizontale (1 - 10)"
-               "\n"
-               "> ");
-        scanf("%d", &hor);
-        scanfclear();
-    } while (hor < 65 || line > 65);
+        do {
+            printf("Veillez entrer une valeur horizontale (A - J)"
+                   "\n"
+                   "> ");
+            scanf("%d", &line);
+            scanfclear();
+        } while (line < 1 || line > 10);
+        do {
+            table(map1);
+            printf("Veillez entrer une valeur horizontale (1 - 10)"
+                   "\n"
+                   "> ");
+            scanf("%d", &hor);
+            scanfclear();
+        } while (hor < 65 || line > (65 + 10));
 
-    if (map1[line - 1][hor - 65] == 1) {
-        map1[line - 1][hor - 65] = 2;
-        printf("Bien joué, vous avez touché une partie du bateau!\n");
-        //Petite pause pour afficher le printf et qu'on puisse le lire
-        Sleep(1000);
-        //Petite pause pour afficher le printf et qu'on puisse le lire
-    }
+        if (map1[line - 1][hor - 65] == 1) {
+            map1[line - 1][hor - 65] = 2;
+            printf("Bien joué, vous avez touché une partie du bateau!\n");
+            //Petite pause pour afficher le printf et qu'on puisse le lire
+            Sleep(1000);
+            //Petite pause pour afficher le printf et qu'on puisse le lire
+        }
 
-    if (map1[line - 1][hor - 65] == 0) {
-        map1[line - 1][hor - 65] = 3;
-        printf("Bien essayé!\n");
-        //Petite pause pour afficher le printf et qu'on puisse le lire
-        Sleep(1000);
-        //Petite pause pour afficher le printf et qu'on puisse le lire
-    }
+        if (map1[line - 1][hor - 65] == 0) {
+            map1[line - 1][hor - 65] = 3;
+            printf("Bien essayé!\n");
+            //Petite pause pour afficher le printf et qu'on puisse le lire
+            Sleep(1000);
+            //Petite pause pour afficher le printf et qu'on puisse le lire
+        }
+        if (map1[line - 1][hor - 65] == 0) {
+            map1[line - 1][hor - 65] = 3;
+            printf("\nEssaye a nouveau!\n");
+            sleep(1000);
+        }
+
+        //Variables pour afficher dans la grille quand le bateau est completement abatu ou on la touché
+//=== === === === === === === === === === === === === === === === === === === === === === === === ===
+        if (map1[1][1] == 2 && map1[1][1] == 2 && map1[1][1] == 2) {
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            contretorpilleurs1 = 1;
+        }
+//=== === === === === === === === === === === === === === === === === === === === === === === === ===
+        if (map1[1][1] == 2 && map1[1][1] == 2 && map1[1][1] == 2) {
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            contretorpilleurs2 = 1;
+        }
+//=== === === === === === === === === === === === === === === === === === === === === === === === ===
+        if (map1[1][1] == 2 && map1[1][1] == 2) {
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            torpilleur = 1;
+        }
+//=== === === === === === === === === === === === === === === === === === === === === === === === ===
+        if (map1[1][1] == 2 && map1[1][1] == 2 && map1[1][1] == 2 && map1[1][1]) {
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            croiseur = 1;
+        }
+//=== === === === === === === === === === === === === === === === === === === === === === === === ===
+        if (map1[1][1] == 2 && map1[1][1] == 2 && map1[1][1] == 2 && map1[1][1] == 2 && map1[1][1] == 2) {
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            porteavions = 1;
+        }
+//=== === === === === === === === === === === === === === === === === === === === === === === === ===
+    } while (!(croiseur == 1 && porteavions == 1 && contretorpilleurs1 == 1 && contretorpilleurs2 == 1 &&
+               torpilleur == 1));
+    printf("Bravo! Vous avez gagné!!");
 }
 
 void scanfclear() {
