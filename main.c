@@ -29,6 +29,8 @@ int main() {
 }
 
 void hub() {
+    system("cls");
+    SetConsoleOutputCP(CP_UTF8);
     //Initialisation des variables
     int choix;
     //Initialisation des variables
@@ -39,7 +41,8 @@ void hub() {
         printf("1-jouer\n"
                "2-classement\n"
                "3-aide\n"
-               "4-quitter");
+               "4-quitter\n"
+               "\n%c", 254);
         scanf("%d", &choix);
         scanfclear();
     } while (choix < 1 || choix > 4);
@@ -87,36 +90,36 @@ void hub() {
 }
 
 void aide() {
+    system("cls");
+
     int choix;
 
-    printf("______           _           \n"
-           "| ___ \\         | |          \n"
-           "| |_/ /___  __ _| | ___  ___ \n"
-           "|    // _ \\/ _` | |/ _ \\/ __|\n"
-           "| |\\ \\  __/ (_| | |  __/\\__ \\\n"
-           "\\_| \\_\\___|\\__, |_|\\___||___/\n"
-           "            __/ |            \n"
-           "           |___/             \n\n");
-    printf("Voici les regles du jeu:\n"
-           "Règle du Touché-coulé!"
+    printf("   _   _     _      \n"
+           "  /_\\ (_) __| | ___ \n"
+           " //_\\\\| |/ _` |/ _ \\\n"
+           "/  _  \\ | (_| |  __/\n"
+           "\\_/ \\_/_|\\__,_|\\___|\n\n");
+    printf("Voici l'aide du jeu!'"
            "\n\n"
-           "   > Le but du jeu est de couler tous les bateaux de l’adversaire.\n"
-           "   > Pour cela, chacun votre tour, vous devez essayer de « tirer » sur ses navires en devinant leurs positions.\n"
-           "   > Pour tirer, il faut citer les coordonnées d’un emplacement comprenant un chiffre et une lettre.\n"
+           "Au début du jeu, les bateaux du jeu seront déjà placés dans la grille donc votre tache,"
+           "est de toucher tous les bateaux et lors que cela arrive, vou gagnerez le jeu."
+           "Bien entendu, le joueur ne voit pas les bateaux de la grille adverse."
+           "Pour tirer, il faut citer les coordonnées d’un emplacement comprenant un chiffre et une lettre à la fois.\n"
            "\n"
-           "   > Par exemple:\n"
-           "      > Choisissez une lettre entre A - J.\n"
-           "      > Choisissez un chiffre entre 1 - 10.\n"
-           "\n"
-           "   > Si le bateau de votre opposant se trouve à cette position alors il est touché et vous pouvez rejouer.\n"
-           "   > Pour couler le navire, il faut le toucher entièrement.\n"
-           "   > C’est-à-dire qu’un bateau prenant 5 cases doit être atteint en ses 5 cases pour être coulé.\n"
-           "   > Le premier à faire chavirer tous les navires de l’autre a gagné.\n\n"
+           "Par exemple:\n"
+           "    > Choisissez une lettre entre A - J.\n"
+           "        - 1"
+           "    > Choisissez un chiffre entre 1 - 10.\n"
+           "        - A"
+           "Si le bateau de votre opposant se trouve à cette position alors il est touché"
+           "Pour couler le navire, il faut le toucher entièrement.\n"
+           "C’est-à-dire qu’un bateau prenant 5 cases doit être atteint en ses 5 cases pour être coulé.\n"
     );
 
     printf("Voulez-vous quitter le jeu?\n"
            "\n1 - Oui."
-           "\n2 - Non et revenir au menu principal.");
+           "\n2 - Non et revenir au menu principal.\n"
+           "\n➩");
     scanf("%d", &choix);
     switch (choix) {
         case 1:
@@ -130,6 +133,8 @@ void aide() {
 
 
 void table(int table[10][10]) {
+    system("cls");
+
     printf("\n");
     printf("     A   B   C   D   E   F   G   H   I   J");
     printf("\n");
@@ -174,9 +179,11 @@ void table(int table[10][10]) {
 }
 
 void jeu() {
+    system("cls");
+
     char hor = 0;
     int line;
-    int inplacement;
+    int rejoin;
 
     //création de la variable pour les bateuax du jeu
     int croiseur = 0;           //4 cases
@@ -229,23 +236,22 @@ void jeu() {
     do {
         table(map1);
         do {
-            printf("Veillez entrer une valeur horizontale (1 - 10)"
+            printf("Veillez entrer les cases que vous voulez toucher :"
+            //printf("Veillez entrer une valeur horizontale (1 - 10)"
                    "\n"
-                   "> ");
-            scanf("%d", &line);
+                   "➩ ");
+            scanf("%d, %c", &line, &hor);
             fflush(stdin);
-            //scanfclear();
-        } while (line < 1 || line > 10);
-        do {
+        } while (line < 1 || line > 10 || hor < 65 || hor > 75);
+        /*do {
             table(map1);
             printf("Veillez entrer une valeur horizontale (A - J)"
                    "\n"
                    "> ");
             scanf("%c", &hor);
             fflush(stdin);
-            //scanfclear();
         } while (hor < 65 || hor > (65 + 10));
-
+*/
         if (map1[line - 1][hor - 65] == 1) {
             map1[line - 1][hor - 65] = 2;
             printf("Bien joué, vous avez touché une partie du bateau!\n");
@@ -306,9 +312,24 @@ void jeu() {
             porteavions = 1;
         }
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
-    } while (!(croiseur == 1 && porteavions == 1 && contretorpilleurs1 == 1 && contretorpilleurs2 == 1 &&
-               torpilleur == 1));
-    printf("Bravo! Vous avez gagné!!");
+    } while (croiseur != 1 && porteavions != 1 && contretorpilleurs1 != 1 && contretorpilleurs2 != 1 &&
+             torpilleur != 1);
+
+    if (croiseur == 1 && porteavions == 1 && contretorpilleurs1 == 1 && contretorpilleurs2 == 1 && torpilleur == 1) {
+        printf("Bravo! Vous avez gagné!!");
+
+        printf("Voulez-vous rejouer?\n"
+               "\n1-Oui!"
+               "\n2-Non et retourner au menu principal.\n"
+               "\n");
+        scanf("%d", &rejoin);
+        if (rejoin == 1) {
+            jeu();
+        } else if (rejoin == 2) {
+            main();
+        }
+        sleep(10000);
+    }
 }
 
 void scanfclear() {
