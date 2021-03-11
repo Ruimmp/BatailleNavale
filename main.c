@@ -229,20 +229,22 @@ void jeu() {
     do {
         table(map1);
         do {
-            printf("Veillez entrer une valeur horizontale (A - J)"
-                   "\n"
-                   "> ");
-            scanf("%d", &line);
-            scanfclear();
-        } while (line < 1 || line > 10);
-        do {
-            table(map1);
             printf("Veillez entrer une valeur horizontale (1 - 10)"
                    "\n"
                    "> ");
-            scanf("%d", &hor);
-            scanfclear();
-        } while (hor < 65 || line > (65 + 10));
+            scanf("%d", &line);
+            fflush(stdin);
+            //scanfclear();
+        } while (line < 1 || line > 10);
+        do {
+            table(map1);
+            printf("Veillez entrer une valeur horizontale (A - J)"
+                   "\n"
+                   "> ");
+            scanf("%c", &hor);
+            fflush(stdin);
+            //scanfclear();
+        } while (hor < 65 || hor > (65 + 10));
 
         if (map1[line - 1][hor - 65] == 1) {
             map1[line - 1][hor - 65] = 2;
