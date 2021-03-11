@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-C:/1.Modules/MA/20/BatailleNavale/main.c
+C:/1.CPNV/MA-20/BatailleNavale/main.c
 stdio.h
 -
 stdlib.h
