@@ -2,6 +2,10 @@
  * @Title : Bataille Navale
  * @Author : MONTEIRO Rui
  * @Version : 0.1
+ * @Date : 12.03.2021
+ * @Date de fin (version 0.1) : 12.03.2021
+ * @Description : Programme effectué dans le cadre du MA-20 et I-CT 431 du CPNV permettant de jouer à la bataille
+ * navale en solo avec une grille de base et les bateaux placés déjà placés sur la grille.
 */
 
 #include <stdio.h>
@@ -19,8 +23,16 @@ void scanfclear();
 
 void table();
 
+void victoire();
+
+char iden[24];
+
+void identification();
+
 int main() {
+    setbuf(stdout, 0);
     //Pour faire afficher tous les caractères spéciaux
+    SetConsoleTitle("Bataille navale Monteiro Rui");
     SetConsoleOutputCP(CP_UTF8);
 
     hub();
@@ -30,13 +42,14 @@ int main() {
 
 void hub() {
     system("cls");
-    SetConsoleOutputCP(CP_UTF8);
     //Initialisation des variables
     int choix;
     //Initialisation des variables
 
+
     do {
-        printf("Bataille Navale!\n\n\n\n");
+        printf("Identifié en tant que: %s", iden);
+        printf("\n\n\n\nBataille Navale!\n\n\n\n");
         printf("Options:\n");
         printf("1-jouer\n"
                "2-classement\n"
@@ -45,44 +58,42 @@ void hub() {
                "\n%c", 254);
         scanf("%d", &choix);
         scanfclear();
-    } while (choix < 1 || choix > 4);
+    } while (choix < 1 || choix > 5);
     switch (choix) {
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
         //cas pour jouer à la bataille navale
         case 1:
-            if (choix == 1)
-                jeu();
+            jeu();
             break;
             //cas pour jouer à la bataille navale
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
             //cas pour voir le classemnt
         case 2:
-            if (choix == 2)
-                printf("classement");
+            printf("classement");
             break;
             //cas pour voir le classemnt
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
             //cas pour afficher l'aide
         case 3:
             system("cls");
-            if (choix == 3)
-                aide();
+            aide();
             system("cls");
             break;
             //cas pour afficher l'aide
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
             //cas pour sortir du jeu
         case 4:
-            if (choix == 4)
-                system("pause");
+            system("pause");
             break;
             //cas pour afficher sortir du jeu
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
-            //cas pour dire que la valeure entrée n'est pas valable
         case 5:
-            if (choix < 1 || choix > 5) {
-                printf("Veillez entrer une valeur parmis celles notées dans les options.");
-            }
+            identification();
+            break;
+//=== === === === === === === === === === === === === === === === === === === === === === === === ===
+            //cas pour dire que la valeure entrée n'est pas valable
+        default:
+            printf("Veillez entrer une valeur parmis celles notées dans les options.");
             break;
             //cas pour dire que la valeure entrée n'est pas valable
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
@@ -183,7 +194,6 @@ void jeu() {
 
     char hor = 0;
     int line;
-    int rejoin;
 
     //création de la variable pour les bateuax du jeu
     int croiseur = 0;           //4 cases
@@ -200,35 +210,35 @@ void jeu() {
     //Création de l'emplacement des bateuax
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
     //croiseur
-    map1[1][1] = 1;
-    map1[1][1] = 1;
-    map1[1][1] = 1;
-    map1[1][1] = 1;
+    map1[0][1] = 1;
+    map1[0][2] = 1;
+    map1[0][3] = 1;
+    map1[0][4] = 1;
     //croiseur
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
     //porteavions
-    map1[1][1] = 1;
-    map1[1][1] = 1;
-    map1[1][1] = 1;
-    map1[1][1] = 1;
-    map1[1][1] = 1;
+    map1[5][1] = 1;
+    map1[6][1] = 1;
+    map1[7][1] = 1;
+    map1[8][1] = 1;
+    map1[9][1] = 1;
     //porteavions
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
     //contretorpilleurs1
-    map1[1][1] = 1;
-    map1[1][1] = 1;
-    map1[1][1] = 1;
+    map1[4][5] = 1;
+    map1[4][6] = 1;
+    map1[4][7] = 1;
     //contretorpilleurs1
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
     //contretorpilleurs2
-    map1[1][1] = 1;
-    map1[1][1] = 1;
-    map1[1][1] = 1;
+    map1[8][5] = 1;
+    map1[8][6] = 1;
+    map1[8][7] = 1;
     //contretorpilleurs2
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
     //torpilleur
-    map1[1][1] = 1;
-    map1[1][1] = 1;
+    map1[5][3] = 1;
+    map1[5][4] = 1;
     //torpilleur
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
     //Création de l'emplacement des bateuax
@@ -314,6 +324,12 @@ void jeu() {
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
     } while (croiseur != 1 && porteavions != 1 && contretorpilleurs1 != 1 && contretorpilleurs2 != 1 &&
              torpilleur != 1);
+    victoire();
+}
+
+void victoire() {
+    int rejoin = 0;
+
     system("cls");
     printf("        _      _        _          \n"
            " /\\   /(_) ___| |_ ___ (_)_ __ ___ \n"
@@ -333,7 +349,25 @@ void jeu() {
         main();
     }
     sleep(10000);
+}
 
+void identification() {
+    system("cls");
+
+    printf("  _____    _            _   _  __ _           _   _             \n"
+           "  \\_   \\__| | ___ _ __ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  \n"
+           "   / /\\/ _` |/ _ \\ '_ \\| __| | |_| |/ __/ _` | __| |/ _ \\| '_ \\ \n"
+           "/\\/ /_| (_| |  __/ | | | |_| |  _| | (_| (_| | |_| | (_) | | | |\n"
+           "\\____/ \\__,_|\\___|_| |_|\\__|_|_| |_|\\___\\__,_|\\__|_|\\___/|_| |_|\n"
+           "                                                                \n\n\n\n\n");
+    printf("Veuillez vou identifier en metant votre prénom sans espacements:\n");
+    fflush(stdin);
+    scanf("%s", iden);
+    fflush(stdin);
+
+    system("pause");
+
+    hub();
 }
 
 void scanfclear() {

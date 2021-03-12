@@ -31,6 +31,7 @@
   <component name="ChangeListManager">
     <list default="true" id="006dd366-77da-432e-adb5-b31368590f78" name="Default Changelist" comment="Teste_2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Documentation/Journal de travail Bataille Navale Rui_Monteiro.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/Journal de travail Bataille Navale Rui_Monteiro.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Documentation/Maquette.bmpr" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/Maquette.bmpr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
@@ -98,6 +99,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="CMake Application.BatailleNavale" />
       <item itemvalue="CMake Application.BatailleNavaleEcole" />
@@ -150,7 +156,7 @@
       <workItem from="1615493025264" duration="2457000" />
       <workItem from="1615537701608" duration="513000" />
       <workItem from="1615548320620" duration="118000" />
-      <workItem from="1615549331899" duration="885000" />
+      <workItem from="1615549331899" duration="7527000" />
     </task>
     <servers />
   </component>
