@@ -1,4 +1,4 @@
-# Install script for directory: C:/1.CPNV/MA-20/BatailleNavale
+# Install script for directory: R:/CPNV/Modules/MA/MA-20/BatailleNavale
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/1.CPNV/MA-20/BatailleNavale/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "R:/CPNV/Modules/MA/MA-20/BatailleNavale/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

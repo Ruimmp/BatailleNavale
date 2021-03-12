@@ -2,6 +2,7 @@
  * @Title : Bataille Navale
  * @Author : MONTEIRO Rui
  * @Version : 0.1
+ * @Date de début de projet : 17.02.2021
  * @Date : 12.03.2021
  * @Date de fin (version 0.1) : 12.03.2021
  * @Description : Programme effectué dans le cadre du MA-20 et I-CT 431 du CPNV permettant de jouer à la bataille
@@ -12,6 +13,7 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <unistd.h>
+#include <conio.h>
 
 void hub();
 
@@ -29,35 +31,104 @@ char iden[24];
 
 void identification();
 
+void fichier();
+
+void red();
+
+void blue();
+
+void black();
+
+void green();
+
+void yellow();
+
+void white();
+
+void reset();
+
 int main() {
     setbuf(stdout, 0);
     //Pour faire afficher tous les caractères spéciaux
     SetConsoleTitle("Bataille navale Monteiro Rui");
     SetConsoleOutputCP(CP_UTF8);
-
+    fichier();
     hub();
-    //jeu();
     return 0;
 }
 
 void hub() {
     system("cls");
+
     //Initialisation des variables
     int choix;
     //Initialisation des variables
 
-
     do {
-        printf("Identifié en tant que: %s", iden);
-        printf("\n\n\n\nBataille Navale!\n\n\n\n");
-        printf("Options:\n");
-        printf("1-jouer\n"
+        printf("                               "
+               "   _  _                        <|\n"
+               "                               "
+               "    \\/              __'__     __'__      __'__\n"
+               "                               "
+               "                   /    /    /    /     /    /\n"
+               "                               "
+               "                  /\\____\\    \\____\\     \\____\\               _  _\n"
+               "                               "
+               "                 / ___!___   ___!___    ___!___               \\/\n"
+               "                               "
+               "               // (      (  (      (   (      (\n"
+               "                               "
+               "             / /   \\______\\  \\______\\   \\______\\\n"
+               "                               "
+               "           /  /   ____!_____ ___!______ ____!_____\n"
+               "                               "
+               "         /   /   /         //         //         /\n"
+               "                               "
+               "      /    /   |         ||         ||         |\n"
+               "                               "
+               "     /_____/     \\         \\\\         \\\\         \\\n"
+               "                               "
+               "           \\      \\_________\\\\_________\\\\_________\\\n"
+               "                               "
+               "            \\         |          |         |\n"
+               "                               "
+               "             \\________!__________!_________!________/\n"
+               "                               "
+               "              \\|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_/|\n"
+               "                               "
+               "               \\    _______________                /\n"
+               "                               ");
+        blue();
+        printf("^^^%%%^%^^^%^%%^\\_\"/_)/_)_/_)__)/_)/)/)_)_\"_'_\"_//)/)/)/)%%%^^^%^^%%%%^\n"
+               "                               "
+               "^!!^^\"!%%!^^^!^^^!!^^^%%%%%!!!!^^^%%^^^!!%%%%^^^!!!!!!%%%^^^^%^^%%%^^^!\n\n");
+        reset();
+        printf("                               "
+               "                "
+               "Identifié en tant que: %s\n\n"
+               "                               "
+               "                      "
+               "Options:\n"
+               "                               "
+               "                      "
+               "1-jouer\n"
+               "                               "
+               "                      "
                "2-classement\n"
+               "                               "
+               "                      "
                "3-aide\n"
-               "4-quitter\n"
-               "\n%c", 254);
+               "                               "
+               "                      "
+               "4-quitter\n\n"
+               "                               "
+               "                      "
+               //pour afficher un caractére invisible
+               "%c", iden, 254
+                //pour afficher un caractére invisible
+        );
         scanf("%d", &choix);
-        scanfclear();
+        fflush(stdin);
     } while (choix < 1 || choix > 5);
     switch (choix) {
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
@@ -104,44 +175,47 @@ void aide() {
     system("cls");
 
     int choix;
-
+    yellow();
     printf("   _   _     _      \n"
            "  /_\\ (_) __| | ___ \n"
            " //_\\\\| |/ _` |/ _ \\\n"
            "/  _  \\ | (_| |  __/\n"
            "\\_/ \\_/_|\\__,_|\\___|\n\n");
-    printf("Voici l'aide du jeu!'"
-           "\n\n"
-           "Au début du jeu, les bateaux du jeu seront déjà placés dans la grille donc votre tache,"
+    reset();
+    printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
+           "Au début du jeu, les bateaux du jeu seront déjà placés dans la grille donc votre tache,\n "
            "est de toucher tous les bateaux et lors que cela arrive, vou gagnerez le jeu."
-           "Bien entendu, le joueur ne voit pas les bateaux de la grille adverse."
-           "Pour tirer, il faut citer les coordonnées d’un emplacement comprenant un chiffre et une lettre à la fois.\n"
-           "\n"
+           "Bien entendu, \nle joueur ne voit pas les bateaux de la grille adverse."
+           "Pour tirer, \nil faut citer les coordonnées d’un emplacement comprenant un chiffre et une lettre à la fois.\n"
            "Par exemple:\n"
-           "    > Choisissez une lettre entre A - J.\n"
-           "        - 1"
-           "    > Choisissez un chiffre entre 1 - 10.\n"
-           "        - A"
+           "    > Choisissez une lettre entre 1 - 10.\n"
+           "        - 1\n"
+           "    > Choisissez un chiffre entre A - J.\n"
+           "        - A\n"
            "Si le bateau de votre opposant se trouve à cette position alors il est touché"
-           "Pour couler le navire, il faut le toucher entièrement.\n"
-           "C’est-à-dire qu’un bateau prenant 5 cases doit être atteint en ses 5 cases pour être coulé.\n"
-    );
-
-    printf("Voulez-vous quitter le jeu?\n"
-           "\n1 - Oui."
-           "\n2 - Non et revenir au menu principal.\n"
-           "\n➩");
+           "Pour couler le navire,\nil faut le toucher entièrement.\n"
+           "C’est-à-dire qu’un bateau prenant 5 cases doit être atteint en ses 5 cases pour être coulé.\n\n");
+    printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n");
+    yellow();
+    printf("Voulez-vous quitter le jeu?\n");
+    green();
+    printf("\n1 - Non, revenir au menu principal.");
+    red();
+    printf("\n2 - Oui.\n"
+    //pour afficher un caractére invisible
+           "%c", 254);
+    //pour afficher un caractére invisible
+    reset();
     scanf("%d", &choix);
     switch (choix) {
         case 1:
-            system("pause");
+            hub();
             break;
         case 2:
-            hub();
+            system("pause");
             break;
     }
 }
-
 
 void table(int table[10][10]) {
     system("cls");
@@ -161,6 +235,7 @@ void table(int table[10][10]) {
                 case 0:
                     printf("|   ");
                     break;
+                    //cas pour les coordonnées du bateau
                 case 1:
                     printf("|   ");
                     break;
@@ -246,18 +321,22 @@ void jeu() {
     do {
         table(map1);
         do {
-            printf("Veillez entrer les cases que vous voulez toucher :"
+            printf("\nVeillez entrer les cases que vous voulez toucher (vertical):"
                    //printf("Veillez entrer une valeur horizontale (1 - 10)"
                    "\n"
-                   "➩ ");
+                   //pour afficher un caractére invisible
+                   "%c", 254);
+            //pour afficher un caractére invisible
             scanf("%d", &line);
             fflush(stdin);
         } while (line < 1 || line > 10);
         do {
             table(map1);
-            printf("Veillez entrer une valeur horizontale (A - J)"
+            printf("Veillez entrer les cases que vous voulez toucher (horizontal):"
                    "\n"
-                   "> ");
+                   //pour afficher un caractére invisible
+                   "%c", 254);
+            //pour afficher un caractére invisible
             scanf("%c", &hor);
             fflush(stdin);
         } while (hor < 65 || hor > 75);
@@ -305,7 +384,7 @@ void jeu() {
             contretorpilleurs2 = 1;
         }
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
-        if (map1[0][1] == 2 && map1[1][2] == 2 && map1[1][3] == 2 && map1[1][4]) {
+        if (map1[0][1] == 2 && map1[0][2] == 2 && map1[0][3] == 2 && map1[0][4]) {
             map1[0][1] = 4;
             map1[0][2] = 4;
             map1[0][3] = 4;
@@ -341,7 +420,7 @@ void victoire() {
     printf("\n\n\n\nVoulez-vous rejouer?\n"
            "\n1-Oui."
            "\n2-Non et retourner au menu principal.\n"
-           "\n");
+           "%c", 254);
     scanf("%d", &rejoin);
     if (rejoin == 1) {
         jeu();
@@ -370,7 +449,30 @@ void identification() {
     hub();
 }
 
-void scanfclear() {
-    int voider;
-    while ((voider = getchar()) != EOF && voider != '\n');
+void fichier() {
+
+    FILE *fichier = NULL;
+
+    fichier = fopen("test.txt", "r+");
+
+    if (fichier != NULL) {
+        // On peut lire et écrire dans le fichier
+    } else {
+        // On affiche un message d'erreur si on veut
+        printf("Impossible d'ouvrir le fichier test.txt");
+    }
 }
+
+void red() { printf("\033[1;31m"); }
+
+void blue() { printf("\033[0;34m"); }
+
+void black() { printf("\033[0;30m"); }
+
+void green() { printf("\033[0;32m"); }
+
+void yellow() { printf("\033[0;33m"); }
+
+void white() { printf("\033[0;37m"); }
+
+void reset() { printf("\033[0m"); }
