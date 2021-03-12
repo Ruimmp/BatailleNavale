@@ -237,26 +237,26 @@ void jeu() {
         table(map1);
         do {
             printf("Veillez entrer les cases que vous voulez toucher :"
-            //printf("Veillez entrer une valeur horizontale (1 - 10)"
+                   //printf("Veillez entrer une valeur horizontale (1 - 10)"
                    "\n"
                    "➩ ");
-            scanf("%d, %c", &line, &hor);
+            scanf("%d", &line);
             fflush(stdin);
-        } while (line < 1 || line > 10 || hor < 65 || hor > 75);
-        /*do {
+        } while (line < 1 || line > 10);
+        do {
             table(map1);
             printf("Veillez entrer une valeur horizontale (A - J)"
                    "\n"
                    "> ");
             scanf("%c", &hor);
             fflush(stdin);
-        } while (hor < 65 || hor > (65 + 10));
-*/
+        } while (hor < 65 || hor > 75);
+
         if (map1[line - 1][hor - 65] == 1) {
             map1[line - 1][hor - 65] = 2;
             printf("Bien joué, vous avez touché une partie du bateau!\n");
             //Petite pause pour afficher le printf et qu'on puisse le lire
-            Sleep(1000);
+            Sleep(1500);
             //Petite pause pour afficher le printf et qu'on puisse le lire
         }
 
@@ -264,13 +264,13 @@ void jeu() {
             map1[line - 1][hor - 65] = 3;
             printf("Bien essayé!\n");
             //Petite pause pour afficher le printf et qu'on puisse le lire
-            Sleep(1000);
+            Sleep(1500);
             //Petite pause pour afficher le printf et qu'on puisse le lire
         }
         if (map1[line - 1][hor - 65] == 0) {
             map1[line - 1][hor - 65] = 3;
-            printf("\nEssaye a nouveau!\n");
-            sleep(1000);
+            printf("\nEssayez a nouveau!\n");
+            sleep(1500);
         }
 
         //Variables pour afficher dans la grille quand le bateau est completement abatu ou on la touché
@@ -314,22 +314,26 @@ void jeu() {
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
     } while (croiseur != 1 && porteavions != 1 && contretorpilleurs1 != 1 && contretorpilleurs2 != 1 &&
              torpilleur != 1);
+    system("cls");
+    printf("        _      _        _          \n"
+           " /\\   /(_) ___| |_ ___ (_)_ __ ___ \n"
+           " \\ \\ / / |/ __| __/ _ \\| | '__/ _ \\\n"
+           "  \\ V /| | (__| || (_) | | | |  __/\n"
+           "   \\_/ |_|\\___|\\__\\___/|_|_|  \\___|\n"
+           "                                   ");
 
-    if (croiseur == 1 && porteavions == 1 && contretorpilleurs1 == 1 && contretorpilleurs2 == 1 && torpilleur == 1) {
-        printf("Bravo! Vous avez gagné!!");
-
-        printf("Voulez-vous rejouer?\n"
-               "\n1-Oui!"
-               "\n2-Non et retourner au menu principal.\n"
-               "\n");
-        scanf("%d", &rejoin);
-        if (rejoin == 1) {
-            jeu();
-        } else if (rejoin == 2) {
-            main();
-        }
-        sleep(10000);
+    printf("\n\n\n\nVoulez-vous rejouer?\n"
+           "\n1-Oui."
+           "\n2-Non et retourner au menu principal.\n"
+           "\n");
+    scanf("%d", &rejoin);
+    if (rejoin == 1) {
+        jeu();
+    } else if (rejoin == 2) {
+        main();
     }
+    sleep(10000);
+
 }
 
 void scanfclear() {
