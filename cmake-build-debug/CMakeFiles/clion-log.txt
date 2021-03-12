@@ -1,11 +1,11 @@
-"R:\Aplications\CLion\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" R:\CPNV\Modules\MA\MA-20\BatailleNavale
+"C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\1.CPNV\MA-20\BatailleNavale
 -- The C compiler identification is GNU 9.2.0
--- Check for working C compiler: R:/Aplications/MinGW/bin/gcc.exe
--- Check for working C compiler: R:/Aplications/MinGW/bin/gcc.exe - works
+-- Check for working C compiler: C:/MinGW/bin/gcc.exe
+-- Check for working C compiler: C:/MinGW/bin/gcc.exe - works
 -- Detecting C compiler ABI info
 -- Detecting C compiler ABI info - done
 -- Detecting C compile features
 -- Detecting C compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: R:/CPNV/Modules/MA/MA-20/BatailleNavale/cmake-build-debug
+-- Build files have been written to: C:/1.CPNV/MA-20/BatailleNavale/cmake-build-debug

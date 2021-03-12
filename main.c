@@ -1,6 +1,13 @@
+/*
+ * @Title : Bataille Navale
+ * @Author : MONTEIRO Rui
+ * @Version : 0.1
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
+#include <unistd.h>
 
 void hub();
 
@@ -22,6 +29,8 @@ int main() {
 }
 
 void hub() {
+    system("cls");
+    SetConsoleOutputCP(CP_UTF8);
     //Initialisation des variables
     int choix;
     //Initialisation des variables
@@ -32,10 +41,11 @@ void hub() {
         printf("1-jouer\n"
                "2-classement\n"
                "3-aide\n"
-               "4-quitter");
+               "4-quitter\n"
+               "\n%c", 254);
         scanf("%d", &choix);
         scanfclear();
-    } while (choix < 1 || choix > 3);
+    } while (choix < 1 || choix > 4);
     switch (choix) {
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
         //cas pour jouer à la bataille navale
@@ -80,36 +90,36 @@ void hub() {
 }
 
 void aide() {
+    system("cls");
+
     int choix;
 
-    printf("______           _           \n"
-           "| ___ \\         | |          \n"
-           "| |_/ /___  __ _| | ___  ___ \n"
-           "|    // _ \\/ _` | |/ _ \\/ __|\n"
-           "| |\\ \\  __/ (_| | |  __/\\__ \\\n"
-           "\\_| \\_\\___|\\__, |_|\\___||___/\n"
-           "            __/ |            \n"
-           "           |___/             \n\n");
-    printf("Voici les regles du jeu:\n"
-           "Règle du Touché-coulé!"
+    printf("   _   _     _      \n"
+           "  /_\\ (_) __| | ___ \n"
+           " //_\\\\| |/ _` |/ _ \\\n"
+           "/  _  \\ | (_| |  __/\n"
+           "\\_/ \\_/_|\\__,_|\\___|\n\n");
+    printf("Voici l'aide du jeu!'"
            "\n\n"
-           "   > Le but du jeu est de couler tous les bateaux de l’adversaire.\n"
-           "   > Pour cela, chacun votre tour, vous devez essayer de « tirer » sur ses navires en devinant leurs positions.\n"
-           "   > Pour tirer, il faut citer les coordonnées d’un emplacement comprenant un chiffre et une lettre.\n"
+           "Au début du jeu, les bateaux du jeu seront déjà placés dans la grille donc votre tache,"
+           "est de toucher tous les bateaux et lors que cela arrive, vou gagnerez le jeu."
+           "Bien entendu, le joueur ne voit pas les bateaux de la grille adverse."
+           "Pour tirer, il faut citer les coordonnées d’un emplacement comprenant un chiffre et une lettre à la fois.\n"
            "\n"
-           "   > Par exemple:\n"
-           "      > Choisissez une lettre entre A - J.\n"
-           "      > Choisissez un chiffre entre 1 - 10.\n"
-           "\n"
-           "   > Si le bateau de votre opposant se trouve à cette position alors il est touché et vous pouvez rejouer.\n"
-           "   > Pour couler le navire, il faut le toucher entièrement.\n"
-           "   > C’est-à-dire qu’un bateau prenant 5 cases doit être atteint en ses 5 cases pour être coulé.\n"
-           "   > Le premier à faire chavirer tous les navires de l’autre a gagné.\n\n"
+           "Par exemple:\n"
+           "    > Choisissez une lettre entre A - J.\n"
+           "        - 1"
+           "    > Choisissez un chiffre entre 1 - 10.\n"
+           "        - A"
+           "Si le bateau de votre opposant se trouve à cette position alors il est touché"
+           "Pour couler le navire, il faut le toucher entièrement.\n"
+           "C’est-à-dire qu’un bateau prenant 5 cases doit être atteint en ses 5 cases pour être coulé.\n"
     );
 
     printf("Voulez-vous quitter le jeu?\n"
            "\n1 - Oui."
-           "\n2 - Non et revenir au menu principal.");
+           "\n2 - Non et revenir au menu principal.\n"
+           "\n➩");
     scanf("%d", &choix);
     switch (choix) {
         case 1:
@@ -123,6 +133,8 @@ void aide() {
 
 
 void table(int table[10][10]) {
+    system("cls");
+
     printf("\n");
     printf("     A   B   C   D   E   F   G   H   I   J");
     printf("\n");
@@ -141,15 +153,15 @@ void table(int table[10][10]) {
                 case 1:
                     printf("|   ");
                     break;
-                //cas pour dire que le bateau a été touché
+                    //cas pour dire que le bateau a été touché
                 case 2:
                     printf("| ! ");
                     break;
-                //cas pour dire que le tire est à l'eau
+                    //cas pour dire que le tire est à l'eau
                 case 3:
                     printf("| ~ ");
                     break;
-                //cas pour dire que le bateau est coullé
+                    //cas pour dire que le bateau est coullé
                 case 4:
                     printf("| 0 ");
                     break;
@@ -167,9 +179,11 @@ void table(int table[10][10]) {
 }
 
 void jeu() {
+    system("cls");
+
     char hor = 0;
     int line;
-    int inplacement;
+    int rejoin;
 
     //création de la variable pour les bateuax du jeu
     int croiseur = 0;           //4 cases
@@ -221,35 +235,100 @@ void jeu() {
 
     do {
         table(map1);
-        printf("Veillez entrer une valeur horizontale (A - J)"
-               "\n"
-               "> ");
-        scanf("%d", &line);
-        scanfclear();
-    } while (line < 1 || line > 10);
-    do {
-        table(map1);
-        printf("Veillez entrer une valeur horizontale (A - J)"
-               "\n"
-               "> ");
-        scanf("%d", &hor);
-        scanfclear();
-    } while (hor < 65 || line > 65);
+        do {
+            printf("Veillez entrer les cases que vous voulez toucher :"
+            //printf("Veillez entrer une valeur horizontale (1 - 10)"
+                   "\n"
+                   "➩ ");
+            scanf("%d, %c", &line, &hor);
+            fflush(stdin);
+        } while (line < 1 || line > 10 || hor < 65 || hor > 75);
+        /*do {
+            table(map1);
+            printf("Veillez entrer une valeur horizontale (A - J)"
+                   "\n"
+                   "> ");
+            scanf("%c", &hor);
+            fflush(stdin);
+        } while (hor < 65 || hor > (65 + 10));
+*/
+        if (map1[line - 1][hor - 65] == 1) {
+            map1[line - 1][hor - 65] = 2;
+            printf("Bien joué, vous avez touché une partie du bateau!\n");
+            //Petite pause pour afficher le printf et qu'on puisse le lire
+            Sleep(1000);
+            //Petite pause pour afficher le printf et qu'on puisse le lire
+        }
 
-    if (map1[line - 1][hor - 65] == 1) {
-        map1[line - 1][hor - 65] = 2;
-        printf("Bien joué, vous avez touché une partie du bateau!\n");
-        //Petite pause pour afficher le printf et qu'on puisse le lire
-        Sleep(1000);
-        //Petite pause pour afficher le printf et qu'on puisse le lire
-    }
+        if (map1[line - 1][hor - 65] == 0) {
+            map1[line - 1][hor - 65] = 3;
+            printf("Bien essayé!\n");
+            //Petite pause pour afficher le printf et qu'on puisse le lire
+            Sleep(1000);
+            //Petite pause pour afficher le printf et qu'on puisse le lire
+        }
+        if (map1[line - 1][hor - 65] == 0) {
+            map1[line - 1][hor - 65] = 3;
+            printf("\nEssaye a nouveau!\n");
+            sleep(1000);
+        }
 
-    if (map1[line - 1][hor - 65] == 0) {
-        map1[line - 1][hor - 65] = 3;
-        printf("Bien essayé!\n");
-        //Petite pause pour afficher le printf et qu'on puisse le lire
-        Sleep(1000);
-        //Petite pause pour afficher le printf et qu'on puisse le lire
+        //Variables pour afficher dans la grille quand le bateau est completement abatu ou on la touché
+//=== === === === === === === === === === === === === === === === === === === === === === === === ===
+        if (map1[1][1] == 2 && map1[1][1] == 2) {
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            torpilleur = 1;
+        }
+//=== === === === === === === === === === === === === === === === === === === === === === === === ===
+        if (map1[1][1] == 2 && map1[1][1] == 2 && map1[1][1] == 2) {
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            contretorpilleurs1 = 1;
+        }
+//=== === === === === === === === === === === === === === === === === === === === === === === === ===
+        if (map1[1][1] == 2 && map1[1][1] == 2 && map1[1][1] == 2) {
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            contretorpilleurs2 = 1;
+        }
+//=== === === === === === === === === === === === === === === === === === === === === === === === ===
+        if (map1[1][1] == 2 && map1[1][1] == 2 && map1[1][1] == 2 && map1[1][1]) {
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            croiseur = 1;
+        }
+//=== === === === === === === === === === === === === === === === === === === === === === === === ===
+        if (map1[1][1] == 2 && map1[1][1] == 2 && map1[1][1] == 2 && map1[1][1] == 2 && map1[1][1] == 2) {
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            map1[1][1] = 4;
+            porteavions = 1;
+        }
+//=== === === === === === === === === === === === === === === === === === === === === === === === ===
+    } while (croiseur != 1 && porteavions != 1 && contretorpilleurs1 != 1 && contretorpilleurs2 != 1 &&
+             torpilleur != 1);
+
+    if (croiseur == 1 && porteavions == 1 && contretorpilleurs1 == 1 && contretorpilleurs2 == 1 && torpilleur == 1) {
+        printf("Bravo! Vous avez gagné!!");
+
+        printf("Voulez-vous rejouer?\n"
+               "\n1-Oui!"
+               "\n2-Non et retourner au menu principal.\n"
+               "\n");
+        scanf("%d", &rejoin);
+        if (rejoin == 1) {
+            jeu();
+        } else if (rejoin == 2) {
+            main();
+        }
+        sleep(10000);
     }
 }
 
