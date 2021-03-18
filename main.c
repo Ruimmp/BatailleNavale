@@ -202,7 +202,7 @@ void aide() {
     printf("\n1 - Non, revenir au menu principal.");
     red();
     printf("\n2 - Oui.\n"
-    //pour afficher un caractére invisible
+           //pour afficher un caractére invisible
            "%c", 254);
     //pour afficher un caractére invisible
     reset();
@@ -322,7 +322,6 @@ void jeu() {
         table(map1);
         do {
             printf("\nVeillez entrer les cases que vous voulez toucher (vertical):"
-                   //printf("Veillez entrer une valeur horizontale (1 - 10)"
                    "\n"
                    //pour afficher un caractére invisible
                    "%c", 254);
