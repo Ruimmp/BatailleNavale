@@ -1,3 +1,3 @@
-"R:\Aplications\CLion\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\BatailleNavale.dir/objects.a
-R:\Aplications\MinGW\bin\ar.exe cr CMakeFiles\BatailleNavale.dir/objects.a @CMakeFiles\BatailleNavale.dir\objects1.rsp
-R:\Aplications\MinGW\bin\gcc.exe -g   -Wl,--whole-archive CMakeFiles\BatailleNavale.dir/objects.a -Wl,--no-whole-archive  -o BatailleNavale.exe -Wl,--out-implib,libBatailleNavale.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\BatailleNavale.dir\linklibs.rsp
+"C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\BatailleNavale.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\BatailleNavale.dir/objects.a @CMakeFiles\BatailleNavale.dir\objects1.rsp
+C:\MinGW\bin\gcc.exe -g   -Wl,--whole-archive CMakeFiles\BatailleNavale.dir/objects.a -Wl,--no-whole-archive  -o BatailleNavale.exe -Wl,--out-implib,libBatailleNavale.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\BatailleNavale.dir\linklibs.rsp
