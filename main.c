@@ -16,6 +16,23 @@
 #include <conio.h>
 #include <time.h>
 
+void menu();
+void jeu();
+void aide();
+void table();
+void Victory();
+void Identification();
+void red();
+void blue();
+void black();
+void green();
+void yellow();
+void white();
+void reset();
+void RandomFile();
+void map(int Cotes);
+
+int affgrille(int hauteur, int largeur);
 
 #pragma execution_character_set("utf-8")
 #define STLC 218 // ┌, Single Top Left Corner
@@ -34,48 +51,18 @@
 
 int datagrille[10][10]; ///bato 1= 1 / compteurbato1   bato2= 2 / compteurbato2   bato3= 3 / compteurbato3
 
-void hub();
-
-void jeu();
-
-void aide();
-
-void scanfclear();
-
-void table();
-
-void victoire();
-
 char iden[24];
-
-void identification();
-
-void fichier();
-
-void red();
-
-void blue();
-
-void black();
-
-void green();
-
-void yellow();
-
-void white();
-
-void reset();
 
 int main() {
     setbuf(stdout, 0);
     //Pour faire afficher tous les caractères spéciaux
     SetConsoleTitle("Bataille navale Monteiro Rui");
     SetConsoleOutputCP(CP_UTF8);
-    hub();
+    menu();
     return 0;
 }
 
-void hub() {
+void menu() {
     system("cls");
 
     //Initialisation des variables
@@ -83,34 +70,34 @@ void hub() {
     //Initialisation des variables
 
     do {
-        green();
-        printf("   ██████╗  █████╗ ████████╗ █████╗ ██╗██╗     ██╗     ███████╗    ███╗   ██╗ █████╗ ██╗   ██╗ █████╗ ██╗     ███████╗\n"
-               "   ██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗██║██║     ██║     ██╔════╝    ████╗  ██║██╔══██╗██║   ██║██╔══██╗██║     ██╔════╝\n"
-               "   ██████╔╝███████║   ██║   ███████║██║██║     ██║     █████╗      ██╔██╗ ██║███████║██║   ██║███████║██║     █████╗  \n"
-               "   ██╔══██╗██╔══██║   ██║   ██╔══██║██║██║     ██║     ██╔══╝      ██║╚██╗██║██╔══██║╚██╗ ██╔╝██╔══██║██║     ██╔══╝  \n"
-               "   ██████╔╝██║  ██║   ██║   ██║  ██║██║███████╗███████╗███████╗    ██║ ╚████║██║  ██║ ╚████╔╝ ██║  ██║███████╗███████╗\n"
-               "   ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚══════╝╚══════╝╚══════╝    ╚═╝  ╚═══╝╚═╝  ╚═╝  ╚═══╝  ╚═╝  ╚═╝╚══════╝╚══════╝\n");
+        printf("\n\n\n\n\n");
+        blue();
+        printf("  ██████╗  █████╗ ████████╗ █████╗ ██╗██╗     ██╗     ███████╗    ███╗   ██╗ █████╗ ██╗   ██╗ █████╗ ██╗     ███████╗\n");
+        red();
+        printf("  ██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗██║██║     ██║     ██╔════╝    ████╗  ██║██╔══██╗██║   ██║██╔══██╗██║     ██╔════╝\n");
+        blue();
+        printf("  ██████╔╝███████║   ██║   ███████║██║██║     ██║     █████╗      ██╔██╗ ██║███████║██║   ██║███████║██║     █████╗  \n");
+        red();
+        printf("  ██╔══██╗██╔══██║   ██║   ██╔══██║██║██║     ██║     ██╔══╝      ██║╚██╗██║██╔══██║╚██╗ ██╔╝██╔══██║██║     ██╔══╝  \n");
+        blue();
+        printf("  ██████╔╝██║  ██║   ██║   ██║  ██║██║███████╗███████╗███████╗    ██║ ╚████║██║  ██║ ╚████╔╝ ██║  ██║███████╗███████╗\n");
+        red();
+        printf("  ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚══════╝╚══════╝╚══════╝    ╚═╝  ╚═══╝╚═╝  ╚═╝  ╚═══╝  ╚═╝  ╚═╝╚══════╝╚══════╝\n");
+        blue();
+        printf("\n\n\n");
         reset();
-        printf("                               "
-               "                "
-               "Identifié en tant que: %s\n\n"
-               "                               "
-               "                      "
-               "Options:\n"
-               "                               "
-               "                      "
-               "1-jouer\n"
-               "                               "
-               "                      "
-               "2-classement\n"
-               "                               "
-               "                      "
-               "3-aide\n"
-               "                               "
-               "                      "
-               "4-quitter\n\n"
-               "                               "
-               "                      "
+        printf("                                               ");
+        printf("Identifié en tant que: %s\n\n"
+               "                                                       ");
+        printf("Options:\n\n"
+               "                                                       ");
+        printf("1-jouer\n"
+               "                                                       ");
+        printf("2-classement\n"
+               "                                                       ");
+        printf("3-aide\n"
+               "                                                       ");
+        printf("4-quitter\n\n"
                //pour afficher un caractére invisible
                "%c", iden, 254
                 //pour afficher un caractére invisible
@@ -147,7 +134,7 @@ void hub() {
             //cas pour afficher sortir du jeu
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
         case 5:
-            identification();
+            Identification();
             break;
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
             //cas pour dire que la valeure entrée n'est pas valable
@@ -158,6 +145,264 @@ void hub() {
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
     }
 }
+
+void RandomFile () {
+    int nombrealeatoire; //nombre aléatoire
+    char c;
+
+    srand((unsigned) time(NULL));
+    nombrealeatoire = 1 + rand() % 4; //Choisit un nombre aléatoire entre 1 et 4
+    FILE *fichier = NULL;
+    switch (nombrealeatoire) {
+        //Choix d'une des 4 grille
+        case 1:
+            fichier = fopen("Grilles/1.txt", "r");
+            break;
+        case 2:
+            fichier = fopen("Grilles/2.txt", "r");
+            break;
+        case 3:
+            fichier = fopen("Grilles/3.txt", "r");
+            break;
+        case 4:
+            fichier = fopen("Grilles/4.txt", "r");
+            break;
+        case 5:
+            fichier = fopen("Grilles/5.txt", "r");
+            break;
+    }
+}
+
+
+int affgrille(int hauteur, int largeur) {
+    switch (datagrille[hauteur - 1][largeur - 1]) {
+        case 0:
+            printf(" "); //cas standard
+            break;
+        case 1: // si il y a un bateau
+            printf(" ");
+            break;
+        case 2: // si il y a un bateau
+            printf(" ");
+            break;
+        case 3: // si il y a un bateau
+            printf(" ");
+            break;
+        case 10://A lo
+            printf("O");
+            break;
+        case 11://touché
+            printf("X");
+            break;
+        case 12://touché
+            printf("X");
+            break;
+        case 13://touché
+            printf("X");
+            break;
+        case 21://coulé
+            printf("%c", 219);
+            break;
+        case 22://coulé
+            printf("%c", 219);
+            break;
+        case 23://coulé
+            printf("%c", 219);
+            break;
+    }
+}
+
+
+void top(int cotes) {
+    SetConsoleOutputCP(437); // For semi-graphic characters
+    printf("\n");
+    printf("   %c", STLC);
+    for (int i = 0; i <= cotes - 2; i++) {
+        printf("%c%c%c%c", SHSB, SHSB, SHSB, SHTB);
+    }
+    printf("%c%c%c%c", SHSB, SHSB, SHSB, STRC);
+}                          // ┌───┬───┐
+
+int mid(int cotes, int i, int ligne) {
+    int a = 1;
+    if (i <= 9) {
+        printf("\n %d %c", i - 1, SVSB);
+    } else if (i == 10) {
+        printf("\n %d %c", i - 1, SVSB);
+    }
+    for (int i = -1; i <= cotes - 3; i++) {
+        printf(" ");
+        affgrille(ligne, a);
+        printf(" %c", SVSB);
+        a++;
+    }
+    printf(" ");
+    affgrille(ligne, a);
+    printf(" %c", SVSB);
+
+}         // │   │   │
+
+void midmid(int cotes) {
+    printf("\n   %c", SVLB);
+    for (int i = 0; i <= cotes - 2; i++) {
+        printf("%c%c%c%c", SHSB, SHSB, SHSB, SC);
+    }
+    printf("%c%c%c%c", SHSB, SHSB, SHSB, SVRB);
+}                       // ├───┼───┤
+
+void bootom(int cotes) {
+    printf("\n   %c", SBLC);
+    for (int i = 0; i <= cotes - 2; i++) {
+        printf("%c%c%c%c", SHSB, SHSB, SHSB, SHBB);
+    }
+    printf("%c%c%c%c", SHSB, SHSB, SHSB, SBRC);
+}                       // └───┴───┘
+
+void map(int Cotes) {
+    printf("     A   B   C   D   E   F   G   H   I   J");
+    top(Cotes);///OK
+    int j;
+    int k = 0;
+    for (j = 1; j < Cotes; j++) {
+        mid(Cotes, j, j);    ///OK
+        midmid(Cotes); ///OK
+        k = j;
+    }
+
+    mid(Cotes, j, k + 1);///OK
+    bootom(Cotes); ///OK
+    printf("\n");
+}
+
+void jouer() {
+    printf("INISTALISATION...");
+    shipfich();
+    system("cls");
+    char tir[5];
+    int num = 0;
+    int lettre;
+    int gagner = 0;
+    int compteurbato1 = 0;
+    int compteurbato2 = 0;
+    int compteurbato3 = 0;
+    while (gagner == 0) {
+
+        grille(cote);
+        // ajouter un syteme qui sait si on a donner la lettre en premier ou pas (A=97/Z=122)
+        SetConsoleOutputCP(65001);
+        printf("Où voulez-vous tirer ?\n");
+        printf("La lettre en premier\n");
+        do {
+            tir[2] = 0;
+            scanf("%s", &tir);
+            if (tir[0] < 97 || tir[0] > 106 || tir[1] < 49 || tir[1] > 57 || tir[2] != 0) {
+                printf("Ce n'est pas une valeur d'une case !\n");
+                printf("Où voulez-vous tirer ?\n");
+                printf("La lettre en premier\n");
+            }
+        } while (tir[0] < 97 || tir[0] > 106 || tir[1] < 48 || tir[1] > 57);
+        system("cls");
+        lettre = tir[0] - 97;//97 ='a'
+        num = tir[1] - 48;
+
+
+        //si a lo
+        if (datagrille[num][lettre] == 0) {
+            system("cls");
+            SetConsoleOutputCP(65001);
+            printf("À l'eau !\n");
+            datagrille[num][lettre] = 10;
+        }
+        //si toucher bato1
+        if (datagrille[num][lettre] == 1) {
+            system("cls");
+            grille(cote);
+            if (compteurbato1 != 4) {
+                SetConsoleOutputCP(65001);
+                system("cls");
+                printf("Touché \n");
+                datagrille[num][lettre] = 11;
+                compteurbato1 += 1;
+                if (compteurbato1 == 4) {
+                    printf("coulé");
+                    for (int i = 0; i < cote; ++i) {
+                        for (int j = 0; j < cote; ++j) {
+                            if (datagrille[i][j] == 11) {
+                                datagrille[i][j] = 21;
+                            }
+                        }
+
+                    }
+                }
+                printf(" !\n");
+            }
+        }
+        //si toucher bato2
+        if (datagrille[num][lettre] == 2) {
+            system("cls");
+            grille(cote);
+            SetConsoleOutputCP(65001);
+            system("cls");
+            printf("Touché \n");
+            datagrille[num][lettre] = 12;
+            compteurbato2 += 1;
+            if (compteurbato2 == 3) {
+                printf("coulé");
+                for (int i = 0; i < cote; ++i) {
+                    for (int j = 0; j < cote; ++j) {
+                        if (datagrille[i][j] == 12) {
+                            datagrille[i][j] = 22;
+                        }
+                    }
+
+                }
+            }
+            printf(" !\n");
+        }
+        //si toucher bato3
+        if (datagrille[num][lettre] == 3) {
+            system("cls");
+            grille(cote);
+            SetConsoleOutputCP(65001);
+            system("cls");
+            printf("Touché \n");
+            datagrille[num][lettre] = 13;
+            compteurbato3 += 1;
+            if (compteurbato3 == 2) {
+                printf("coulé");
+                for (int i = 0; i < cote; ++i) {
+                    for (int j = 0; j < cote; ++j) {
+                        if (datagrille[i][j] == 13) {
+                            datagrille[i][j] = 23;
+                        }
+                    }
+
+                }
+            }
+            printf(" !\n");
+        }
+        if (compteurbato1 == 4 && compteurbato2 == 3 && compteurbato3 == 2) {
+            gagner += 1;
+        }
+    }
+    printf("Vous avez gagner !");
+    system("pause");
+    menu();
+}
+
+//------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------
 
 void aide() {
     system("cls");
@@ -197,14 +442,14 @@ void aide() {
     scanf("%d", &choix);
     switch (choix) {
         case 1:
-            hub();
+            menu();
             break;
         case 2:
             system("pause");
             break;
     }
 }
-
+/*
 void table(int table[10][10]) {
     system("cls");
 
@@ -390,10 +635,10 @@ void jeu() {
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
     } while (croiseur != 1 && porteavions != 1 && contretorpilleurs1 != 1 && contretorpilleurs2 != 1 &&
              torpilleur != 1);
-    victoire();
+    Victory();
 }
 
-void victoire() {
+void Victory() {
     int rejoin = 0;
 
     system("cls");
@@ -417,7 +662,7 @@ void victoire() {
     sleep(10000);
 }
 
-void identification() {
+void Identification() {
     system("cls");
 
     printf("  _____    _            _   _  __ _           _   _             \n"
@@ -433,34 +678,8 @@ void identification() {
 
     system("pause");
 
-    hub();
+    menu();
 }
-/*
-void random (){
-    int nombrealeatoire; //nombre aléatoire
-    char c;
-
-    srand((unsigned) time(NULL));
-    nombrealeatoire = 1 + rand() % 4; //Choisit un nombre aléatoire entre 1 et 4
-    FILE *fichier = NULL;
-    switch (nombrealeatoire) {
-        //Choix d'une des 4 grille
-        case 1:
-            fichier = fopen("Grilles/1.txt", "r");
-            break;
-        case 2:
-            fichier = fopen("Grilles/2.txt", "r");
-            break;
-        case 3:
-            fichier = fopen("Grilles/3.txt", "r");
-            break;
-        case 4:
-            fichier = fopen("Grilles/4.txt", "r");
-            break;
-        case 5:
-            fichier = fopen("Grilles/5.txt", "r");
-            break;
-    }
 
     // pour eviter que le retour a ligne ou tout autre caractere non souhaiter soit pris avec
     for (int i = 0; i < cote; ++i) {
