@@ -14,6 +14,25 @@
 #include <windows.h>
 #include <unistd.h>
 #include <conio.h>
+#include <time.h>
+
+
+#pragma execution_character_set("utf-8")
+#define STLC 218 // ┌, Single Top Left Corner
+#define STRC 191 // ┐, Single Top Right Corner
+#define SBLC 192 // └, Single Bottom Left Corner
+#define SBRC 217 // ┘, Single Bottom Right Corner
+#define SVSB 179 // │, Single Vertical Simple Border
+#define SVRB 180 // ┤, Single Vertical Right Border
+#define SVLB 195 // ├, Single Vertical Left Border
+#define SHSB 196 // ─, Single Horizontal Simple Border
+#define SHBB 193 // ┴, Single Horizontal Bottom Border
+#define SHTB 194 // ┬, Single Horizontal Top Border
+#define SC   197 // ┼, Single Center
+
+#define cote 10
+
+int datagrille[10][10]; ///bato 1= 1 / compteurbato1   bato2= 2 / compteurbato2   bato3= 3 / compteurbato3
 
 void hub();
 
@@ -52,7 +71,6 @@ int main() {
     //Pour faire afficher tous les caractères spéciaux
     SetConsoleTitle("Bataille navale Monteiro Rui");
     SetConsoleOutputCP(CP_UTF8);
-    fichier();
     hub();
     return 0;
 }
@@ -65,43 +83,13 @@ void hub() {
     //Initialisation des variables
 
     do {
-        printf("                               "
-               "   _  _                        <|\n"
-               "                               "
-               "    \\/              __'__     __'__      __'__\n"
-               "                               "
-               "                   /    /    /    /     /    /\n"
-               "                               "
-               "                  /\\____\\    \\____\\     \\____\\               _  _\n"
-               "                               "
-               "                 / ___!___   ___!___    ___!___               \\/\n"
-               "                               "
-               "               // (      (  (      (   (      (\n"
-               "                               "
-               "             / /   \\______\\  \\______\\   \\______\\\n"
-               "                               "
-               "           /  /   ____!_____ ___!______ ____!_____\n"
-               "                               "
-               "         /   /   /         //         //         /\n"
-               "                               "
-               "      /    /   |         ||         ||         |\n"
-               "                               "
-               "     /_____/     \\         \\\\         \\\\         \\\n"
-               "                               "
-               "           \\      \\_________\\\\_________\\\\_________\\\n"
-               "                               "
-               "            \\         |          |         |\n"
-               "                               "
-               "             \\________!__________!_________!________/\n"
-               "                               "
-               "              \\|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_/|\n"
-               "                               "
-               "               \\    _______________                /\n"
-               "                               ");
-        blue();
-        printf("^^^%%%^%^^^%^%%^\\_\"/_)/_)_/_)__)/_)/)/)_)_\"_'_\"_//)/)/)/)%%%^^^%^^%%%%^\n"
-               "                               "
-               "^!!^^\"!%%!^^^!^^^!!^^^%%%%%!!!!^^^%%^^^!!%%%%^^^!!!!!!%%%^^^^%^^%%%^^^!\n\n");
+        green();
+        printf("   ██████╗  █████╗ ████████╗ █████╗ ██╗██╗     ██╗     ███████╗    ███╗   ██╗ █████╗ ██╗   ██╗ █████╗ ██╗     ███████╗\n"
+               "   ██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗██║██║     ██║     ██╔════╝    ████╗  ██║██╔══██╗██║   ██║██╔══██╗██║     ██╔════╝\n"
+               "   ██████╔╝███████║   ██║   ███████║██║██║     ██║     █████╗      ██╔██╗ ██║███████║██║   ██║███████║██║     █████╗  \n"
+               "   ██╔══██╗██╔══██║   ██║   ██╔══██║██║██║     ██║     ██╔══╝      ██║╚██╗██║██╔══██║╚██╗ ██╔╝██╔══██║██║     ██╔══╝  \n"
+               "   ██████╔╝██║  ██║   ██║   ██║  ██║██║███████╗███████╗███████╗    ██║ ╚████║██║  ██║ ╚████╔╝ ██║  ██║███████╗███████╗\n"
+               "   ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚══════╝╚══════╝╚══════╝    ╚═╝  ╚═══╝╚═╝  ╚═╝  ╚═══╝  ╚═╝  ╚═╝╚══════╝╚══════╝\n");
         reset();
         printf("                               "
                "                "
@@ -447,21 +435,45 @@ void identification() {
 
     hub();
 }
+/*
+void random (){
+    int nombrealeatoire; //nombre aléatoire
+    char c;
 
-void fichier() {
-
+    srand((unsigned) time(NULL));
+    nombrealeatoire = 1 + rand() % 4; //Choisit un nombre aléatoire entre 1 et 4
     FILE *fichier = NULL;
-
-    fichier = fopen("test.txt", "r+");
-
-    if (fichier != NULL) {
-        // On peut lire et écrire dans le fichier
-    } else {
-        // On affiche un message d'erreur si on veut
-        printf("Impossible d'ouvrir le fichier test.txt");
+    switch (nombrealeatoire) {
+        //Choix d'une des 4 grille
+        case 1:
+            fichier = fopen("Grilles/1.txt", "r");
+            break;
+        case 2:
+            fichier = fopen("Grilles/2.txt", "r");
+            break;
+        case 3:
+            fichier = fopen("Grilles/3.txt", "r");
+            break;
+        case 4:
+            fichier = fopen("Grilles/4.txt", "r");
+            break;
+        case 5:
+            fichier = fopen("Grilles/5.txt", "r");
+            break;
     }
-}
 
+    // pour eviter que le retour a ligne ou tout autre caractere non souhaiter soit pris avec
+    for (int i = 0; i < cote; ++i) {
+        for (int j = 0; j < cote; ++j) {
+            do {
+                c = fgetc(fichier);
+                datagrille[i][j] = c - 48;
+            } while (c <= 32);
+        }
+    }
+    fclose(fichier);
+}
+*/
 void red() { printf("\033[1;31m"); }
 
 void blue() { printf("\033[0;34m"); }
