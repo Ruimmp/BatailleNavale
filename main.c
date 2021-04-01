@@ -17,36 +17,27 @@
 #include <time.h>
 
 void menu();
-
-void Play();
-
+void play();
 void aide();
-
-void table();
-
-void Victory();
-
+void victory();
 void Identification();
-
-void red();
-
-void blue();
-
-void black();
-
-void green();
-
-void yellow();
-
-void white();
-
-void reset();
-
-void RandomFile();
-
+void randomfile();
 void map(int Cotes);
 
+//couleures
+void red();
+void blue();
+void bluef();
+void black();
+void green();
+void yellow();
+void white();
+void reset();
+//couleures
+
 int affgrille(int hauteur, int largeur);
+
+int datagrille[10][10];
 
 #pragma execution_character_set("utf-8")
 #define STLC 218 // ┌, Single Top Left Corner
@@ -62,8 +53,6 @@ int affgrille(int hauteur, int largeur);
 #define SC   197 // ┼, Single Center
 
 #define cote 10
-
-int datagrille[10][10]; ///bato 1= 1 / compteurbato1   bato2= 2 / compteurbato2   bato3= 3 / compteurbato3
 
 char iden[24];
 
@@ -87,42 +76,30 @@ void menu() {
         printf("\n\n\n\n\n");
         blue();
         printf("  ██████╗  █████╗ ████████╗ █████╗ ██╗██╗     ██╗     ███████╗    ███╗   ██╗ █████╗ ██╗   ██╗ █████╗ ██╗     ███████╗\n");
-        red();
         printf("  ██╔══██╗██╔══██╗╚══██╔══╝██╔══██╗██║██║     ██║     ██╔════╝    ████╗  ██║██╔══██╗██║   ██║██╔══██╗██║     ██╔════╝\n");
-        blue();
         printf("  ██████╔╝███████║   ██║   ███████║██║██║     ██║     █████╗      ██╔██╗ ██║███████║██║   ██║███████║██║     █████╗  \n");
-        red();
         printf("  ██╔══██╗██╔══██║   ██║   ██╔══██║██║██║     ██║     ██╔══╝      ██║╚██╗██║██╔══██║╚██╗ ██╔╝██╔══██║██║     ██╔══╝  \n");
-        blue();
         printf("  ██████╔╝██║  ██║   ██║   ██║  ██║██║███████╗███████╗███████╗    ██║ ╚████║██║  ██║ ╚████╔╝ ██║  ██║███████╗███████╗\n");
-        red();
         printf("  ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚══════╝╚══════╝╚══════╝    ╚═╝  ╚═══╝╚═╝  ╚═╝  ╚═══╝  ╚═╝  ╚═╝╚══════╝╚══════╝\n");
-        blue();
+        reset();
         printf("\n\n\n");
         reset();
-        printf("                                               ");
-        printf("Identifié en tant que: %s\n\n"
-               "                                                       ");
-        printf("Options:\n\n"
-               "                                                       ");
-        printf("1-jouer\n"
-               "                                                       ");
-        printf("2-classement\n"
-               "                                                       ");
-        printf("3-aide\n"
-               "                                                       ");
-        printf("4-quitter\n\n");
-
-        printf("%c", iden, 254);
+        printf("                                               Identifié en tant que: %s\n\n", iden);
+        printf("                                                       Options:\n\n");
+        printf("                                                       1-jouer\n");
+        printf("                                                       2-classement\n");
+        printf("                                                       3-aide\n");
+        printf("                                                       4-quitter\n\n");
+        printf("                                                       %c", 254);
 
         scanf("%d", &choix);
         fflush(stdin);
-    } while (choix < 1 || choix > 5);
+    } while (choix < 1 || choix > 6);
     switch (choix) {
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
         //cas pour jouer à la bataille navale
         case 1:
-            Play();
+            play();
             break;
             //cas pour jouer à la bataille navale
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
@@ -150,6 +127,9 @@ void menu() {
             Identification();
             break;
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
+        case 6:
+            victory();
+            break;
             //cas pour dire que la valeure entrée n'est pas valable
         default:
             printf("Veillez entrer une valeur parmis celles notées dans les options.");
@@ -159,18 +139,65 @@ void menu() {
     }
 }
 
+
+void aide() {
+    system("cls");
+
+    int choix;
+    yellow();
+    printf(" █████╗ ██╗██████╗ ███████╗\n"
+           "██╔══██╗██║██╔══██╗██╔════╝\n"
+           "███████║██║██║  ██║█████╗  \n"
+           "██╔══██║██║██║  ██║██╔══╝  \n"
+           "██║  ██║██║██████╔╝███████╗\n"
+           "╚═╝  ╚═╝╚═╝╚═════╝ ╚══════╝\n\n");
+    reset();
+    printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
+           "Au début du jeu, les bateaux du jeu seront déjà placés dans la grille donc votre tache,\n "
+           "est de toucher tous les bateaux et lors que cela arrive, vou gagnerez le jeu."
+           "Bien entendu, \nle joueur ne voit pas les bateaux de la grille adverse."
+           "Pour tirer, \nil faut citer les coordonnées d’un emplacement comprenant un chiffre et une lettre à la fois.\n"
+           "Par exemple:\n"
+           "    > Tirez sur une des cases (lettre en premier et minuscule)\n"
+           "        - a0\n"
+           "Si le bateau de votre opposant se trouve à cette position alors il est touché"
+           "Pour couler le navire,\nil faut le toucher entièrement.\n"
+           "C’est-à-dire qu’un bateau prenant 5 cases doit être atteint en ses 5 cases pour être coulé.\n\n");
+    printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n");
+    yellow();
+    printf("Voulez-vous quitter le jeu?\n");
+    green();
+    printf("\n1 - Non, revenir au menu principal.");
+    red();
+    printf("\n2 - Oui.\n"
+           //pour afficher un caractére invisible
+           "%c", 254);
+    //pour afficher un caractére invisible
+    reset();
+    scanf("%d", &choix);
+    switch (choix) {
+        case 1:
+            menu();
+            break;
+        case 2:
+            system("pause");
+            break;
+    }
+}
+
 void Identification() {
     system("cls");
 
-    printf("  _____    _            _   _  __ _           _   _             \n"
-           "  \\_   \\__| | ___ _ __ | |_(_)/ _(_) ___ __ _| |_(_) ___  _ __  \n"
-           "   / /\\/ _` |/ _ \\ '_ \\| __| | |_| |/ __/ _` | __| |/ _ \\| '_ \\ \n"
-           "/\\/ /_| (_| |  __/ | | | |_| |  _| | (_| (_| | |_| | (_) | | | |\n"
-           "\\____/ \\__,_|\\___|_| |_|\\__|_|_| |_|\\___\\__,_|\\__|_|\\___/|_| |_|\n"
-           "                                                                \n\n\n\n\n");
-    printf("Veuillez vou identifier en metant votre prénom sans espacements:\n");
+    printf("\n\n"
+           "          ██╗██████╗ ███████╗███╗   ██╗████████╗██╗███████╗██╗ ██████╗ █████╗ ████████╗██╗ ██████╗ ███╗   ██╗\n"
+           "          ██║██╔══██╗██╔════╝████╗  ██║╚══██╔══╝██║██╔════╝██║██╔════╝██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║\n"
+           "          ██║██║  ██║█████╗  ██╔██╗ ██║   ██║   ██║█████╗  ██║██║     ███████║   ██║   ██║██║   ██║██╔██╗ ██║\n"
+           "          ██║██║  ██║██╔══╝  ██║╚██╗██║   ██║   ██║██╔══╝  ██║██║     ██╔══██║   ██║   ██║██║   ██║██║╚██╗██║\n"
+           "          ██║██████╔╝███████╗██║ ╚████║   ██║   ██║██║     ██║╚██████╗██║  ██║   ██║   ██║╚██████╔╝██║ ╚████║\n"
+           "          ╚═╝╚═════╝ ╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚═╝╚═╝     ╚═╝ ╚═════╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝\n\n\n");
+    printf("                         Veuillez vou identifier en metant votre prénom sans espacements:\n");
     fflush(stdin);
-    scanf("%s", iden);
+    scanf("                                                      %s", iden);
     fflush(stdin);
 
     system("pause");
@@ -178,7 +205,7 @@ void Identification() {
     menu();
 }
 
-void RandomFile() {
+void randomfile() {
     int nombrealeatoire; //nombre aléatoire
     char c;
 
@@ -230,32 +257,74 @@ int affgrille(int hauteur, int largeur) {
         case 3: // si il y a un bateau
             printf(" ");
             break;
-        case 10://A lo
+        case 4: // si il y a un bateau
+            printf(" ");
+            break;
+        case 5: // si il y a un bateau
+            printf(" ");
+            break;
+        case 10://A l'eau
+            blue();
             printf("O");
+            bluef();
             break;
         case 11://touché
+            yellow();
             printf("X");
+            bluef();
             break;
         case 12://touché
+            yellow();
             printf("X");
+            bluef();
             break;
         case 13://touché
+            yellow();
             printf("X");
+            bluef();
+            break;
+        case 14://touché
+            yellow();
+            printf("X");
+            bluef();
+            break;
+        case 15://touché
+            yellow();
+            printf("X");
+            bluef();
             break;
         case 21://coulé
+            red();
             printf("%c", 219);
+            bluef();
             break;
         case 22://coulé
+            red();
             printf("%c", 219);
+            bluef();
             break;
         case 23://coulé
+            red();
             printf("%c", 219);
+            bluef();
+            break;
+        case 24://coulé
+            red();
+            printf("%c", 219);
+            bluef();
+            break;
+        case 25://coulé
+            red();
+            printf("%c", 219);
+            bluef();
+            reset();
             break;
     }
 }
 
 //Formation de la grille
 void top(int cotes) {
+    bluef();
     SetConsoleOutputCP(437); // For semi-graphic characters
     printf("\n");
     printf("   %c", STLC);
@@ -298,9 +367,11 @@ void bootom(int cotes) {
         printf("%c%c%c%c", SHSB, SHSB, SHSB, SHBB);
     }
     printf("%c%c%c%c", SHSB, SHSB, SHSB, SBRC);
+    reset();
 }                       // └───┴───┘
 
 void map(int Cotes) {
+    bluef();
     printf("     A   B   C   D   E   F   G   H   I   J");
     top(Cotes);
     int j;
@@ -314,11 +385,12 @@ void map(int Cotes) {
     mid(Cotes, j, k + 1);
     bootom(Cotes);
     printf("\n");
+    reset();
 }
 
-void Play() {
+void play() {
     printf("INISTALISATION...");
-    RandomFile();
+    randomfile();
     system("cls");
     char tir[5];
     int num = 0;
@@ -327,19 +399,21 @@ void Play() {
     int compteurbateau1 = 0;
     int compteurbateau2 = 0;
     int compteurbateau3 = 0;
+    int compteurbateau4 = 0;
+    int compteurbateau5 = 0;
     while (gagner == 0) {
 
         map(cote);
 
         // ajouter un syteme qui sait si on a donner la lettre en premier ou pas (A=97/Z=122)
         SetConsoleOutputCP(65001);
-        printf("Tirez sur une des cases (lettre en premier et minuscule)\n");
+        printf("\n> Tirez sur une des cases (lettre en premier et minuscule)\n");
         do {
             tir[2] = 0;
             scanf("%s", &tir);
             if (tir[0] < 97 || tir[0] > 106 || tir[1] < 49 || tir[1] > 57 || tir[2] != 0) {
-                printf("Ce n'est pas une valeur d'une case !\n");
-                printf("Tirez sur une des cases (lettre en premier et minuscule)\n");
+                printf("\n> Ce n'est pas une valeur d'une case !\n");
+                printf("> Tirez sur une des cases (lettre en premier et minuscule)\n");
             }
         } while (tir[0] < 97 || tir[0] > 106 || tir[1] < 48 || tir[1] > 57);
         system("cls");
@@ -363,7 +437,7 @@ void Play() {
                 printf("Touché \n");
                 datagrille[num][lettre] = 11;
                 compteurbateau1 += 1;
-                if (compteurbateau1 == 4) {
+                if (compteurbateau1 == 2) {
                     printf("coulé");
                     for (int i = 0; i < cote; ++i) {
                         for (int j = 0; j < cote; ++j) {
@@ -408,7 +482,7 @@ void Play() {
             printf("Touché \n");
             datagrille[num][lettre] = 13;
             compteurbateau3 += 1;
-            if (compteurbateau3 == 2) {
+            if (compteurbateau3 == 3) {
                 printf("coulé");
                 for (int i = 0; i < cote; ++i) {
                     for (int j = 0; j < cote; ++j) {
@@ -421,89 +495,96 @@ void Play() {
             }
             printf(" !\n");
         }
-        if (compteurbateau1 == 4 && compteurbateau2 == 3 && compteurbateau3 == 2) {
+        //si toucher bateau4
+        if (datagrille[num][lettre] == 4) {
+            system("cls");
+            map(cote);
+            SetConsoleOutputCP(65001);
+            system("cls");
+            printf("Touché \n");
+            datagrille[num][lettre] = 14;
+            compteurbateau4 += 1;
+            if (compteurbateau4 == 4) {
+                printf("coulé");
+                for (int i = 0; i < cote; ++i) {
+                    for (int j = 0; j < cote; ++j) {
+                        if (datagrille[i][j] == 14) {
+                            datagrille[i][j] = 24;
+                        }
+                    }
+
+                }
+            }
+            printf(" !\n");
+        }
+        //si toucher bateau5
+        if (datagrille[num][lettre] == 5) {
+            system("cls");
+            map(cote);
+            SetConsoleOutputCP(65001);
+            system("cls");
+            printf("Touché \n");
+            datagrille[num][lettre] = 15;
+            compteurbateau5 += 1;
+            if (compteurbateau5 == 5) {
+                printf("coulé");
+                for (int i = 0; i < cote; ++i) {
+                    for (int j = 0; j < cote; ++j) {
+                        if (datagrille[i][j] == 15) {
+                            datagrille[i][j] = 25;
+                        }
+                    }
+
+                }
+            }
+            printf(" !\n");
+        }
+        if (compteurbateau1 == 2 && compteurbateau2 == 3 && compteurbateau3 == 3 && compteurbateau4 == 4 &&
+            compteurbateau5 == 5) {
             gagner += 1;
-            Victory();
         }
     }
-    printf("Vous avez gagner !");
-    system("pause");
-    menu();
+    victory();
 }
 
-void Victory() {
+void score(){
+
+}
+
+void victory() {
     int rejoin = 0;
 
     system("cls");
-    printf("        _      _        _          \n"
-           " /\\   /(_) ___| |_ ___ (_)_ __ ___ \n"
-           " \\ \\ / / |/ __| __/ _ \\| | '__/ _ \\\n"
-           "  \\ V /| | (__| || (_) | | | |  __/\n"
-           "   \\_/ |_|\\___|\\__\\___/|_|_|  \\___|\n"
-           "                                   ");
-
-    printf("\n\n\n\nVoulez-vous rejouer?\n"
-           "\n1-Oui."
-           "\n2-Non et retourner au menu principal.\n"
-           "%c", 254);
+    yellow();
+    printf("\n\n\n"
+           "                                   ██╗   ██╗██╗ ██████╗████████╗ ██████╗ ██╗██████╗ ███████╗\n"
+           "                                   ██║   ██║██║██╔════╝╚══██╔══╝██╔═══██╗██║██╔══██╗██╔════╝\n"
+           "                                   ██║   ██║██║██║        ██║   ██║   ██║██║██████╔╝█████╗  \n"
+           "                                   ╚██╗ ██╔╝██║██║        ██║   ██║   ██║██║██╔══██╗██╔══╝  \n"
+           "                                    ╚████╔╝ ██║╚██████╗   ██║   ╚██████╔╝██║██║  ██║███████╗\n"
+           "                                     ╚═══╝  ╚═╝ ╚═════╝   ╚═╝    ╚═════╝ ╚═╝╚═╝  ╚═╝╚══════╝\n");
+    reset();
+    printf("\n\n\n                                                     Voulez-vous rejouer?\n");
+    green();
+    printf("\n                                                     1-Oui.");
+    red();
+    printf("\n                                                     2-Non et retourner au menu principal.\n");
+    reset();
+    printf("\n                                                     %c", 254);
     scanf("%d", &rejoin);
     if (rejoin == 1) {
-        Play();
+        play();
     } else if (rejoin == 2) {
         main();
     }
     sleep(10000);
 }
 
-void aide() {
-    system("cls");
-
-    int choix;
-    yellow();
-    printf("   _   _     _      \n"
-           "  /_\\ (_) __| | ___ \n"
-           " //_\\\\| |/ _` |/ _ \\\n"
-           "/  _  \\ | (_| |  __/\n"
-           "\\_/ \\_/_|\\__,_|\\___|\n\n");
-    reset();
-    printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
-           "Au début du jeu, les bateaux du jeu seront déjà placés dans la grille donc votre tache,\n "
-           "est de toucher tous les bateaux et lors que cela arrive, vou gagnerez le jeu."
-           "Bien entendu, \nle joueur ne voit pas les bateaux de la grille adverse."
-           "Pour tirer, \nil faut citer les coordonnées d’un emplacement comprenant un chiffre et une lettre à la fois.\n"
-           "Par exemple:\n"
-           "    > Choisissez une lettre entre 1 - 10.\n"
-           "        - 1\n"
-           "    > Choisissez un chiffre entre A - J.\n"
-           "        - A\n"
-           "Si le bateau de votre opposant se trouve à cette position alors il est touché"
-           "Pour couler le navire,\nil faut le toucher entièrement.\n"
-           "C’est-à-dire qu’un bateau prenant 5 cases doit être atteint en ses 5 cases pour être coulé.\n\n");
-    printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n");
-    yellow();
-    printf("Voulez-vous quitter le jeu?\n");
-    green();
-    printf("\n1 - Non, revenir au menu principal.");
-    red();
-    printf("\n2 - Oui.\n"
-           //pour afficher un caractére invisible
-           "%c", 254);
-    //pour afficher un caractére invisible
-    reset();
-    scanf("%d", &choix);
-    switch (choix) {
-        case 1:
-            menu();
-            break;
-        case 2:
-            system("pause");
-            break;
-    }
-}
-
 void red() { printf("\033[1;31m"); }
 
 void blue() { printf("\033[0;34m"); }
+
+void bluef() { printf("\033[0;36m"); }
 
 void black() { printf("\033[0;30m"); }
 
