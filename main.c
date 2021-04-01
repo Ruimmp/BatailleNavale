@@ -89,12 +89,13 @@ void menu() {
         printf("                                                       1-jouer\n");
         printf("                                                       2-classement\n");
         printf("                                                       3-aide\n");
-        printf("                                                       4-quitter\n\n");
+        printf("                                                       4-quitter\n");
+        printf("                                                       5-Identification\n");
         printf("                                                       %c", 254);
 
         scanf("%d", &choix);
         fflush(stdin);
-    } while (choix < 1 || choix > 6);
+    } while (choix < 1 || choix > 5);
     switch (choix) {
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
         //cas pour jouer à la bataille navale
@@ -127,9 +128,6 @@ void menu() {
             Identification();
             break;
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
-        case 6:
-            victory();
-            break;
             //cas pour dire que la valeure entrée n'est pas valable
         default:
             printf("Veillez entrer une valeur parmis celles notées dans les options.");
@@ -381,7 +379,6 @@ void map(int Cotes) {
         midmid(Cotes);
         k = j;
     }
-
     mid(Cotes, j, k + 1);
     bootom(Cotes);
     printf("\n");
@@ -512,7 +509,6 @@ void play() {
                             datagrille[i][j] = 24;
                         }
                     }
-
                 }
             }
             printf(" !\n");
@@ -581,17 +577,10 @@ void victory() {
 }
 
 void red() { printf("\033[1;31m"); }
-
 void blue() { printf("\033[0;34m"); }
-
 void bluef() { printf("\033[0;36m"); }
-
 void black() { printf("\033[0;30m"); }
-
 void green() { printf("\033[0;32m"); }
-
 void yellow() { printf("\033[0;33m"); }
-
 void white() { printf("\033[0;37m"); }
-
 void reset() { printf("\033[0m"); }
