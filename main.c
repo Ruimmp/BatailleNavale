@@ -20,9 +20,10 @@ void menu();
 void play();
 void aide();
 void victory();
-void Identification();
+void identification();
 void randomfile();
 void map(int Cotes);
+void logs();
 
 //couleures
 void red();
@@ -38,6 +39,14 @@ void reset();
 int affgrille(int hauteur, int largeur);
 
 int datagrille[10][10];
+
+int compteurbateau1 = 0;
+int compteurbateau2 = 0;
+int compteurbateau3 = 0;
+int compteurbateau4 = 0;
+int compteurbateau5 = 0;
+
+int points = 0;
 
 #pragma execution_character_set("utf-8")
 #define STLC 218 // ┌, Single Top Left Corner
@@ -61,7 +70,7 @@ int main() {
     //Pour faire afficher tous les caractères spéciaux
     SetConsoleTitle("Bataille navale Monteiro Rui");
     SetConsoleOutputCP(CP_UTF8);
-    menu();
+    identification();
     return 0;
 }
 
@@ -90,7 +99,7 @@ void menu() {
         printf("                                                       2-classement\n");
         printf("                                                       3-aide\n");
         printf("                                                       4-quitter\n");
-        printf("                                                       5-Identification\n");
+        printf("                                                       5-identification\n");
         printf("                                                       %c", 254);
 
         scanf("%d", &choix);
@@ -125,7 +134,7 @@ void menu() {
             //cas pour afficher sortir du jeu
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
         case 5:
-            Identification();
+            identification();
             break;
 //=== === === === === === === === === === === === === === === === === === === === === === === === ===
             //cas pour dire que la valeure entrée n'est pas valable
@@ -183,7 +192,7 @@ void aide() {
     }
 }
 
-void Identification() {
+void identification() {
     system("cls");
 
     printf("\n\n"
@@ -197,9 +206,7 @@ void Identification() {
     fflush(stdin);
     scanf("                                                      %s", iden);
     fflush(stdin);
-
     system("pause");
-
     menu();
 }
 
@@ -263,32 +270,32 @@ int affgrille(int hauteur, int largeur) {
             break;
         case 10://A l'eau
             blue();
-            printf("O");
+            printf("%c", 219);
             bluef();
             break;
         case 11://touché
             yellow();
-            printf("X");
+            printf("%c", 219);
             bluef();
             break;
         case 12://touché
             yellow();
-            printf("X");
+            printf("%c", 219);
             bluef();
             break;
         case 13://touché
             yellow();
-            printf("X");
+            printf("%c", 219);
             bluef();
             break;
         case 14://touché
             yellow();
-            printf("X");
+            printf("%c", 219);
             bluef();
             break;
         case 15://touché
             yellow();
-            printf("X");
+            printf("%c", 219);
             bluef();
             break;
         case 21://coulé
@@ -315,8 +322,8 @@ int affgrille(int hauteur, int largeur) {
             red();
             printf("%c", 219);
             bluef();
-            reset();
             break;
+            reset();
     }
 }
 
@@ -393,11 +400,6 @@ void play() {
     int num = 0;
     int lettre;
     int gagner = 0;
-    int compteurbateau1 = 0;
-    int compteurbateau2 = 0;
-    int compteurbateau3 = 0;
-    int compteurbateau4 = 0;
-    int compteurbateau5 = 0;
     while (gagner == 0) {
 
         map(cote);
@@ -543,8 +545,14 @@ void play() {
     victory();
 }
 
-void score(){
+void logs(char * argv[]) {
 
+    FILE * file = NULL;
+
+    if ((file = fopen("logs/name.txt", "w+"))){
+        //gets(iden);
+        fprintf(file, "Name \n", iden);
+    }
 }
 
 void victory() {
@@ -560,7 +568,10 @@ void victory() {
            "                                    ╚████╔╝ ██║╚██████╗   ██║   ╚██████╔╝██║██║  ██║███████╗\n"
            "                                     ╚═══╝  ╚═╝ ╚═════╝   ╚═╝    ╚═════╝ ╚═╝╚═╝  ╚═╝╚══════╝\n");
     reset();
-    printf("\n\n\n                                                     Voulez-vous rejouer?\n");
+    printf("\n\n\n");
+    printf("Vou avez fait %d points.", points);
+    printf("\n\n");
+    printf("                                                     Voulez-vous rejouer?\n");
     green();
     printf("\n                                                     1-Oui.");
     red();
